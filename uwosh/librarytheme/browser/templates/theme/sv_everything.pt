@@ -1,0 +1,90 @@
+<form id="lib_everything_search" class="gat_everything_search" method="post" action="http://uw-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/dlSearch.do">
+	<div class="library_search">
+	    <input id="library_search_in_everything" class="library_search_in" type="text" value=""
+		       style="width: 270px;"
+			   alt="Search UW Oshkosh and UW System for Articles, Books and More..." />
+        <input name="institution" value="OSH" type="hidden">
+        <input name="vid" value="OSH" type="hidden">
+        <input id="primo-query" type="hidden" name="query" /> 
+        <select name="search_scope" tal:define="scope view/scopes">
+			<option tal:attributes="value scope/everything">Everything</option>
+			<option tal:attributes="value scope/articles">- Articles</option>
+			<option tal:attributes="value scope/oshkosh">- Books &amp; Media (UW Oshkosh)</option>
+			<option tal:attributes="value scope/all_voyagers">- Books &amp; Media (UW System)</option>
+			<option tal:attributes="value scope/digital_collections">- UW Digital Collections</option>
+		</select>
+		<input class="library_search_button" type="submit" value="Search" />
+    </div>
+	
+	<div class="library_search_hidden"> 
+		<a class="gat_everything_advanced" href="http://uw-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?mode=Advanced&ct=AdvancedSearch&dscnt=2&fromLogin=true&vid=OSH">Advanced Search</a>
+		<span class="pipe"> | </span>
+		<a class="gat_everything_opac" href="http://oshlib.wisconsin.edu/vwebv/searchAdvanced">Old Catalog</a>
+		<span class="pipe"> | </span>
+		<div class="anchor-drops">
+			<span  class="anchor-drops-label" title="Need resources beyond the UW System?">
+				<a tal:attributes="href string:${view/portal/absolute_url}/borrowing/renew-items;">Beyond UW System</a>
+				<span class="anchor-drops-arrow">&nbsp;</span>
+			</span>
+			<ul class="anchor-drops-options anchor-drops-no-scroll" style="height: 50px;">
+				<li>
+					<a class="gat_everything_ill" tal:attributes="href string:${view/portal/absolute_url}/ill" title="Interlibrary Loan">Interlibrary Loan</a>
+				</li>
+				<li>
+					<a class="gat_everything_wc" href="http://www.remote.uwosh.edu/login?url=http://firstsearch.oclc.org/fsip?dbname=WorldCat&autho=100197471&screen=advanced&entitypersistentWorldCat=?done=http://www.uwosh.edu/library/" title="WorldCat">WorldCat</a>
+				</li>
+				<li>
+					<a class="gat_everything_more" tal:attributes="href string:${view/portal/absolute_url}/borrowing">Not sure what to choose?</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="polk-search-tutorial" class="library_right" style="padding-right: 20px;">
+			<span class="pane-tip-trigger">
+				
+				<img src="http://www.uwosh.edu/library/++resource++uwosh.libraryguides.images/tutorial.png" alt="Tutorial"/>
+				<a class="" title="Tutorial" href="http://www.uwosh.edu/library/gots/tutorial/searchuw">Tutorial</a>
+				
+				<div class="pane-tip-window gat_research_pane">
+					<div class="pane-tip-heading gat_database_heading">
+						<a href="#">Search@UW</a>
+					</div>
+					
+					<div class="library_guide_desc">
+						Use Search@UW to find articles and e-books online -- as well as books, media, and more in the physical 
+						collections of Polk Library and the UW system.  Easily order materials from other UW campuses with in-line 
+						Universal Borrowing (UB).
+					</div>
+					<div class="pane-icon library_text_vmiddle">
+						<div>
+							<img alt="Tutorial" src="http://www.uwosh.edu/library/++resource++uwosh.libraryguides.images/tutorial.png">
+						</div>
+						<a class="gat_database_tutorial library_link" href="http://www.uwosh.edu/library/gots/tutorial/searchuw">Guided Tutorial</a>
+					</div>
+				</div>
+			</span>
+		</div>
+		
+		<div class="library_line_break_p library_clear"> </div>
+		<a class="gat_everything_journal" href="http://sfx.wisconsin.edu/uwosh/az/">Journals by Title</a>
+		
+		<div class="library_right">
+			<div class="anchor-drops gat_everything_subjects">
+				<span class="anchor-drops-label" title="Show more Collections by Subject">
+					<a tal:attributes="href string:${view/portal/absolute_url}/subjects">Collections by Subject</a>
+					<span class="anchor-drops-arrow">&nbsp;</span>
+				</span>
+				<ul class="anchor-drops-options">
+					<li><a tal:attributes="href string:${view/portal/absolute_url}/subjects;" title="All Subjects"><b>All Subjects</b></a></li>
+					<li tal:repeat="node view/getSubjectGuides"><a tal:attributes="href node/getURL; title node/Title" tal:content="node/Title"></a></li>
+				</ul>
+			</div>
+			<span class="pipe"> | </span>
+			
+			<div class="anchor-drops gat_everything_db js_enabled">
+				<tal:insert content="structure python: context.restrictedTraverse('sv_all_databases')(databases=view.getAllDatabases())" />
+			</div>
+		</div>
+		<div class="library_clear"></div>
+	</div>
+</form>

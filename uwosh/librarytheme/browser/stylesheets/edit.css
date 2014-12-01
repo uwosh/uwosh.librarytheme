@@ -1,0 +1,10 @@
+/* *
+ * This CSS is added when ever any content is being Edited.
+ * 
+ */
+
+#portal-column-one, #portal-column-two { display: none !important; }
+.formPanel .field #description { font-weight: normal !important; }
+
+#portal-columns { width: 98%; }
+div.discreet.suppressVisualEditor { margin-top: 0px !important; }

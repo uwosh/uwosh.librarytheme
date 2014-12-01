@@ -1,0 +1,135 @@
+<!--
+ <form class="gat_courses" method="get" tal:attributes="action string:${view/portal/absolute_url}/find" >
+	<div class="library_search">
+		<input id="library_search_in_guides" class="library_search_in" type="text" name="q" value="" autocomplete="off" alt="Search for Courses and on this Website" />
+		<input class="library_search_button" type="submit" value="Search" name="submit" />
+		<input type="hidden" value="everything" name="type" />
+		<input type="hidden" value="more" name="category" />
+		<div id="library_autocomplete_suggestions"></div>
+	</div>
+	<div class="library_search_hidden"> 
+		<ul class="library_left" style="margin-left: 20px; width: 70%;">
+			<li>
+				Find your course materials: <b>reserves</b>, databases and more.  Type the course ("Biology 101") or the instructors name.
+			</li>
+		</ul>
+		<a class="library_clear" href="http://www.screencast.com/t/3CzBPH3Ao" title="Click to see tutorial">
+			<img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/course-prev.jpg" alt="Search Demo Video"/>
+		</a>
+	</div>
+</form>
+-->
+<!--
+<form class="gat_courses" method="get" tal:attributes="action string:${view/portal/absolute_url}/find" >
+	<div class="library_search">
+		<input id="library_search_in_guides" class="library_search_in" type="text" name="q" value="" autocomplete="off" alt="Search for Courses and on this Website" />
+		<input class="library_search_button" type="submit" value="Search" name="submit" />
+		<input type="hidden" value="everything" name="type" />
+		<input type="hidden" value="more" name="category" />
+		<div id="library_autocomplete_suggestions"></div>
+	</div>
+	<div class="library_search_hidden"> 
+		<img style="height: 50px;" 
+			tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/moved.png" alt="Course Reserves Moved" />
+	</div>
+</form>
+-->
+
+
+
+
+
+
+
+
+
+<!--
+<div>
+	<label>Course Reserves</label>
+	<div style="height: 50px;">
+		<div style="padding: 2px 0px 0px 20px;">
+			eReserves &amp; Traditional Reserves are now in <b><a href="">D2L's course content.</a></b>
+			<ul style="padding-left: 20px;">
+				<li>
+					To learn more about the changes, <a href=""> take the walk-through.</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div>
+		<a href="http://www.uwosh.edu/library/coursepages">Course Pages</a>
+		<span class="pipe"> | </span>
+		<a href="http://www.uwosh.edu/library/coursepages">Website Search</a>
+	</div>
+
+
+
+</div>
+-->
+
+<div class="library_search_reserves" >
+	<div class="library_search">
+		<!--<img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/_dropdown.png" alt="Expand" />
+		<b><i>Expand to see all available options.</i></b>-->
+		<div class="course-column">
+			<a class="heading" href="https://uwosh.courses.wisconsin.edu/Shibboleth.sso/Login?target=https://uwosh.courses.wisconsin.edu/d2l/shibbolethSSO/deepLinkLogin.d2l">Course Reserves</a>
+		</div>
+		<div class="course-sep"></div>
+		<div class="course-column">
+			<a class="heading" tal:attributes="href string:${view/portal/absolute_url}/find?q=&type=website&category=more">
+				Course Pages
+			</a>
+		</div>
+		<div class="course-sep"></div>
+		<div class="course-column">
+			<a class="heading" tal:attributes="href string:${view/portal/absolute_url}/find?q=&type=website&category=more">
+				Website Search
+			</a>
+		</div>
+		<div class="library_clear"></div>
+	</div>
+	
+	<div class="library_search_hidden"> 
+		<div class="course-column">
+			
+			<div class="course-link">
+				<a href="https://uwosh.courses.wisconsin.edu/Shibboleth.sso/Login?target=https://uwosh.courses.wisconsin.edu/d2l/shibbolethSSO/deepLinkLogin.d2l">Electronic &amp; Traditional reserves now in your D2L course content.</a>
+			</div>
+			<div class="course-help">
+				<a tal:attributes="href string:${view/portal/absolute_url}/reserves">Need help?</a>
+			</div>
+		
+		</div>
+		
+		<div class="course-sep tall"></div>
+		
+		<div class="course-column">
+			
+			<div class="course-link"> 
+				<a tal:attributes="href string:${view/portal/absolute_url}/find?q=&type=courses&category=more">
+					Find research databases and more for your courses.
+				</a>
+			</div>
+			<div class="course-help">
+			</div>
+		
+		</div>
+		
+		<div class="course-sep tall"></div>
+		
+		<div class="course-column">
+			
+			<div class="course-link">
+				<a tal:attributes="href string:${view/portal/absolute_url}/find?q=&type=website&category=more">
+					Search for webpages on the library website.
+				</a>
+			</div>
+			<div class="course-help">
+			</div>
+		
+		</div>
+		<div class="library_clear"></div>
+	</div>
+
+</div>

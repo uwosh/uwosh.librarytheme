@@ -1,0 +1,6 @@
+#library_header { display:none !important; }
+#library_feedback { display:none !important; }
+#library_footer, .library_footer { display:none !important;  }
+.overlay.overlay-ajax  { display:none !important;  }
+.float-corner  { display:none !important;  }
+.library_maint, .library_maintenance { display:none !important;  }

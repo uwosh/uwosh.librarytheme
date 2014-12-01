@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+
+	<metal:content-title fill-slot="content-title">
+		<h1 class="documentFirstHeading" tal:content="python:context.getValue('message-title')" />
+	</metal:content-title>
+	
+	<metal:content-description fill-slot="content-description">
+	</metal:content-description>
+ 
+	<metal:breadcrumbs fill-slot="content-breadcrumbs">
+		<div id="portal-breadcrumbs"
+			 class="library_nav_crumbs"
+		     i18n:domain="plone">
+		    <span id="breadcrumbs-home">
+		        <a tal:attributes="href view/portal/absolute_url">Polk Library</a>
+		    </span>
+			<span class="breadcrumbSeparator">&rsaquo;</span>
+			<a tal:attributes="href string:${context/absolute_url}/site_message" tal:content="python: context.getValue('message-title')"></a>
+		</div>
+		
+    </metal:breadcrumbs>
+ 
+ 
+	<metal:content-core fill-slot="content-core">
+
+		<div tal:content="structure view/getMessage"></div>
+		
+	</metal:content-core>
+
+			
+
+</body>
+</html>

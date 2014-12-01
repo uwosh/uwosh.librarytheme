@@ -1,0 +1,79 @@
+
+	
+<script type="text/javascript">
+	jq(document).ready(function(){
+		//Simple initial checked logic
+		var found = false;
+		jq('input[name=lib-activate]').each(function(){
+			if (jq(this).attr('data-active') != 'private') {
+				jq(this).attr('checked','checked');
+				found = true;
+			}
+		});
+		if (!found) {
+			jq('input[name=lib-activate]').first().attr('checked','checked');
+		}
+		
+		jq('#settings-activate-msg').click(function(){
+			var act = jq('input[name=lib-activate]:checked').val();
+			var url = SiteUtil.getCurrentURL() + '/warning_system_message?lib-activate=' + act + '&submit=1';
+			console.log(url);
+			window.location = url;
+		});
+		jq('#settings-new-msg').click(function(){
+			window.location = SiteUtil.getCurrentURL() + '/add-message';
+		});
+		jq('#button-setup-msg').click(function(){
+			window.location = SiteUtil.getCurrentURL() + '/warning_system_message?setup=1';
+		});
+
+		
+	});
+</script>
+
+
+<div tal:condition="view/isFormSetup">
+	<ul>
+		<li style="list-style-type:none;">
+			<input style="margin-top: 0;" type="radio" 
+			       data-active="" name="lib-activate" value="none" />
+			<span class="lib-example">Show no message.</span>
+		</li>
+		<li tal:repeat="node view/getData" style="list-style-type:none;">
+			<input style="margin-top: 0;" type="radio" name="lib-activate" tal:attributes="value node/id; data-active node/isActive" />
+			
+			<span class="library_warn_type" tal:attributes="style node/levelColor">&nbsp;&nbsp;&nbsp;</span>
+			
+			<a class="library_b" tal:attributes="href string:${node/getURL}/site_message" tal:content="node/Title"></a>
+			<div style="padding-left: 35px;">
+				<a tal:attributes="href string:${node/getURL}/edit">(Edit)</a>
+				<a tal:attributes="href string:${node/getURL}/delete_confirmation">(Delete)</a>
+				
+				<tal:block tal:condition="node/showTimeFrame">
+					<span class="lib-example">Set to be shown from </span>
+					<span class="lib-example" tal:content="node/start"></span>
+					<span class="lib-example"> to </span>
+					<span class="lib-example" tal:content="node/end"></span>
+					<span class="lib-example"> if selected.</span>
+				</tal:block>
+				<tal:block tal:condition="not: node/showTimeFrame">
+					<span class="lib-example">Set to be shown immediately if selected.</span>
+				</tal:block>
+			</div>
+			
+		</li>
+	</ul>
+	
+	<br />
+	
+	<input type="button" id="settings-activate-msg" value="Display Selected Message" name="submit" />
+	<span>&nbsp;</span>
+	<input type="button" id="settings-new-msg" name="button-new-message" value="Add New Message" />
+</div>
+
+<tal:block tal:condition="not: view/isFormSetup">
+	<label style="margin-right: 10px;">Automatically Setup the Message System:</label>
+	<input type="button" id="button-setup-msg" value="Setup"/>
+	<br /><br />
+	<div>This will create the D2C type and setup the proper PloneFormGen Fields for you.</div>
+</tal:block>

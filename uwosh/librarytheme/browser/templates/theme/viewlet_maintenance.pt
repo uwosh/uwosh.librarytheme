@@ -1,0 +1,7 @@
+<tal:block condition="python:view.message!=None">
+	<div style="height: 10px;"></div>
+	<div class="library_maintenance" tal:attributes="style view/get_warning_color">
+		<a tal:attributes="href string: ${view/message/absolute_url}/site_message" 
+		   tal:content="python: view.message.getValue('message-title')" />
+	</div>
+</tal:block>

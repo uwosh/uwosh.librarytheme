@@ -1,0 +1,28 @@
+<span class="libraryh3lp-container">
+	
+	<tal:comment condition="nothing">
+		THIS IS NOT THE PRIMARY CHAT CODE!  THIS IS FOR DEPARMENTAL OR SUB-CHATS.
+		Notes:  Make sure to include it in the libraryh3lp-container.
+	</tal:comment>
+	
+	<span class="libraryh3lp" style="display:none;" jid="polk-library-ill@chat.libraryh3lp.com">
+	<a href="#" onclick="window.open('http://libraryh3lp.com/chat/polk-library-ill@chat.libraryh3lp.com?skin=3768&amp;identity=librarian&amp;sounds=true', 'chat', 'resizable=1,width=600,height=350'); return false;">
+			Available
+		</a>
+	</span>
+	
+	
+	<span class="libraryh3lp" style="display:none;" jid="polk-library-ref@chat.libraryh3lp.com">
+		<a href="#" onclick="window.open('http://libraryh3lp.com/chat/polk-library-ref@chat.libraryh3lp.com?skin=3760&amp;identity=librarian&amp;sounds=true', 'chat', 'resizable=1,width=600,height=350'); return false;">
+			Available
+		</a>
+	</span>
+	
+	<span class="libraryh3lp" style="color: #777777;">
+	Unavailable
+	</span>
+	
+</span>
+
+
+

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- This file holds the setup configuration of the viewlet managers
+     for the "Custom Theme" skin.
+     -->
+
+<object>
+  <order manager="plone.portaltop" skinname="uwosh.librarytheme">
+  	    <viewlet name="uwosh.themebase.toplevelnav" insert-before="*" />
+		<viewlet name="uwosh.librarytheme.maintenance" insert-after="uwosh.themebase.toplevelnav" />
+		<viewlet name="uwosh.librarytheme.header" insert-after="uwosh.librarytheme.maintenance" />
+		
+        <!-- <viewlet name="uwosh.librarytheme.banner" insert-after="uwosh.themebase.toplevelnav" />
+		 <viewlet name="uwosh.librarytheme.hours" insert-after="uwosh.librarytheme.banner" />
+        <viewlet name="uwosh.librarytheme.search" insert-after="uwosh.librarytheme.hours" />
+        <viewlet name="uwosh.librarytheme.guides" insert-after="uwosh.librarytheme.search" />
+        <viewlet name="uwosh.librarytheme.services" insert-after="uwosh.librarytheme.guides" />
+        <viewlet name="uwosh.librarytheme.help" insert-after="uwosh.librarytheme.services" />-->
+        <viewlet name="uwosh.simpleemergency" insert-after="uwosh.librarytheme.header" />
+    </order>
+	<order manager="plone.portalfooter" skinname="uwosh.librarytheme">
+		
+		<viewlet name="uwosh.librarytheme.footer" insert-before="*" />
+		<viewlet name="uwosh.librarytheme.feedback" insert-before="uwosh.themebase.footer" />
+        	
+		<!--<viewlet name="uwosh.librarytheme.feedback" insert-before="uwosh.librarytheme.footer" />
+        <viewlet name="uwosh.librarytheme.footer" insert-before="plone.footer" /> -->
+	    <viewlet name="uwosh.themebase.footer" insert-after="uwosh.librarytheme.feedback" />
+		<viewlet name="uwosh.themebase.colophon" insert-before="plone.colophon" />
+    </order>
+    
+    <!--
+	<order manager="plone.belowcontent" skinname="uwosh.librarytheme">
+		<viewlet name="uwosh.themebase.documentbyline" insert-after="*" />
+	</order>
+	-->
+		
+	<hidden manager="plone.abovecontent" skinname="uwosh.librarytheme">
+		<viewlet name="plone.path_bar" />
+		<viewlet name="uwosh.themebase.path_bar" />
+	</hidden>
+	<hidden manager="plone.portaltop" skinname="uwosh.librarytheme">
+    	<viewlet name="uwosh.themebase.banner" insert-after="uwosh.themebase.toplevelnav" />
+		<viewlet name="uwosh.themebase.mainimage" insert-after="uwosh.currentsectionnav" />
+		<viewlet name="uwosh.themecollege.sitetitle" insert-after="uwosh.themebase.mainimage" />
+		<viewlet name="uwosh.simpleemergency" />
+		<viewlet name="plone.path_bar" />
+	</hidden>
+	<hidden manager="plone.belowcontenttitle" skinname="uwosh.librarytheme">
+		<viewlet name="plone.belowcontenttitle.documentbyline" />
+	</hidden>
+    <hidden manager="plone.portalfooter" skinname="uwosh.librarytheme">
+	   	<viewlet name="plone.footer" />
+		<viewlet name="plone.colophon" />
+		<viewlet name="plone.site_actions" />
+    </hidden>
+    <hidden manager="plone.portalheader" skinname="uwosh.librarytheme">
+	    <viewlet name="plone.searchbox" />
+		<viewlet name="plone.logo" />
+		<viewlet name="plone.global_sections" />
+		<viewlet name="plone.site_actions" />
+		<viewlet name="plone.personal_bar" />
+    </hidden>
+
+  
+  
+  
+  
+  
+  
+  
+
+</object>

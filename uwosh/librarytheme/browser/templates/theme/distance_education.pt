@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone"
+	  lang="en">
+<body>
+
+	<metal:block fill-slot="style_slot">
+		<style>
+			.de_column_l { float: left; width: 320px; }
+			.de_column_r { float: left; width: 320px; padding-left: 20px; }
+			.de_space {height: 20px;}
+		</style>
+	</metal:block>
+
+	<metal:content-description fill-slot="content-description">
+		<tal:block condition="python: context.getField('showDescription').getAccessor(context)()">
+			<div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+			  Generic KSS Description. Is rendered with class="documentDescription".
+			</div>
+		</tal:block>
+	</metal:content-description>
+
+	<metal:content-core fill-slot="content-core">
+		
+		<metal:field use-macro="python:context.widget('prefixText', mode='view')">
+		    Prefix text
+		</metal:field>
+		
+		<tal:body>
+			
+			<div class="de_column_l" tal:on-error="nothing"
+			     tal:content="structure python: context.get('homepage-left-column').getText()">
+			</div>
+			
+			<div class="de_column_r" tal:on-error="nothing">
+				<tal:news define="news python:view.get_news(['Distance Education'],5);">
+					<div class="library_headline">
+						<a tal:attributes="href string:${view/portal/absolute_url}/news/topics/Distance Education" style="color:black !important;">Distance Education News</a>
+					</div>
+					<ul class="de_news">
+						<li tal:repeat="node news">
+							<a tal:attributes="href node/getURL" tal:content="python: view.shorten_text(node['Title'],40)" />
+						</li>
+						<li tal:condition="not: news">No news</li>
+						<li><a tal:attributes="href string:${view/portal/absolute_url}/news/topics/Distance Education">More Distance Education News...</a></li>
+					</ul>
+					
+					<div class="library_text_right library_small_pad_b" tal:condition="python:context.portal_membership.checkPermission('Add portal content',context)" 
+					     tal:define="link string:${view/portal/absolute_url}/news/createObject?type_name=WeblogEntry">
+						<a tal:attributes="href link" style="text-decoration: none !important;">
+							<img style="text-decoration: none !important;" tal:attributes="src string:${view/portal/absolute_url}/portal_skins/plone_images/edit.png" />
+						</a>
+						<a tal:attributes="href link">Add News Item?</a>
+					</div>
+					
+					<div class="de_space"></div>
+				</tal:news>
+				
+				<div tal:on-error="nothing" tal:content="structure python: context.get('homepage-right-column').getText()">
+				</div>
+				
+			</div>
+			
+			<div class="library_clear"></div>
+			
+		</tal:body>
+	
+		<metal:field use-macro="python:context.widget('suffixText', mode='view')">
+		    Suffix text
+		</metal:field>
+	
+	</metal:content-core>
+
+</body>
+</html>

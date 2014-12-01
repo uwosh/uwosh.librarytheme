@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="quills.app">
+
+  <metal:block fill-slot="css_slot">
+    <style type="text/css" media="all" tal:content="string:@import url(${portal_url}/Quills.css);">
+    </style>
+  </metal:block>
+
+  <body>
+    <div metal:fill-slot="main">
+
+      <h1 class="documentFirstHeading" tal:content="view/getTitle">Title</h1>
+	  <span class="quill_capatilize">
+	  	<tal:block tal:content="structure context/sv_breadcrumbs" />
+	  </span>
+	  
+      <tal:sub-archives define="init context/getSubArchives; sub_archives view/getArchiveFormatted" condition="sub_archives">
+          <h3 class="library_content_left" i18n:translate="heading_sub-archives">News</h3>
+          <ul class="library_content_left">
+            <li tal:repeat="archive sub_archives">
+              <a href=""
+                 tal:attributes="href archive/url"
+                 tal:content="archive/date">_archive_url_</a>
+            </li>
+          </ul>
+     </tal:sub-archives>
+	 
+	 <div class="library_line_break_p" tal:condition="not: view/hasFullDate"></div>
+	 
+      <div class="library_content_left">
+        <tal:dummy define="entries context/getEntries;
+                           batch_base_url request/ACTUAL_URL;
+                           weblog python: context.getWeblog();
+                           weblog_content python: context.getWeblogContentObject();
+                           wvconfig weblog_content/@@weblog_view/getConfig">
+        <metal:macro
+            use-macro="context/quills_weblog_macros/list-entries"/>
+        </tal:dummy>
+      </div>
+
+    </div>
+  </body>
+</html>

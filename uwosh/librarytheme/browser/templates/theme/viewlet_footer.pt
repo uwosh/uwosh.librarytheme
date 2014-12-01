@@ -1,0 +1,7 @@
+<tal:comment condition="nothing">
+	This import allows use to edit the viewlet content via the ZMI now.
+	It is a nice little trick.	
+</tal:comment>
+
+<tal:import content="structure context/footer_links" />
+

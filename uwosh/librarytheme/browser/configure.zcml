@@ -1,0 +1,286 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="uwosh.librarytheme">
+
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="uwosh.librarytheme"
+      />
+
+
+	<browser:page
+	    for=".areas.IGuidedKeywords"
+		name="guided_keywords_view"
+		class=".areas.TemplateBaseView"
+		template="templates/apps/guided_keywords.pt"
+		permission="zope2.View"
+	/>
+
+	<browser:page
+		for=".areas.IComputerAvailabilityPage"
+		name="computer_availability_view"
+		template="templates/apps/computer_availability.pt"
+		permission="zope2.View"
+    />
+    
+    <browser:page
+		for="*"
+		name="computer_availability_plain"
+		template="templates/apps/computer_availability_plain.pt"
+		permission="zope2.View"
+    />
+   
+    <browser:page
+		for=".settings.IAllowSiteSettingsTab"
+		name="edit_settings"
+		class=".settings.SiteSettingsTab"
+		template="templates/theme/site_settings.pt"
+		permission="zope2.View"
+    />
+ 
+    <browser:page
+		for=".settings.IAllowSiteSettingsTab"
+		name="warning_system_message"
+		class=".settings.WarningMessageSystem"
+		template="templates/theme/warning_system.pt"
+		permission="zope2.View"
+    />
+ 
+    <browser:page
+		for="uwosh.pfg.d2c.interfaces.IFormSaveData2ContentEntry"
+		name="site_message"
+		class=".settings.WarningMessageEntry"
+		template="templates/theme/warning.pt"
+		permission="zope2.View"
+    />
+ 
+   	<browser:page
+		for="*"
+		name="library_homepage"
+		class=".areas.LibraryHomePage"
+		template="templates/theme/homepage.pt"
+		permission="zope2.View"
+    />
+
+    <browser:page
+		for=".areas.IEMCHomepage"
+		name="emc_homepage"
+		class=".areas.TemplateBaseView"
+		template="templates/theme/emc.pt"
+		permission="zope2.View"
+    />
+    
+    <browser:page
+		for=".areas.IGovernmentHomepage"
+		name="government_homepage"
+		class=".areas.TemplateBaseView"
+		template="templates/theme/government.pt"
+		permission="zope2.View"
+    />
+    
+    <browser:page
+		for=".areas.IDistanceEducationHomepage"
+		name="distance_homepage"
+		class=".areas.TemplateBaseView"
+		template="templates/theme/distance_education.pt"
+		permission="zope2.View"
+    />
+    
+    <browser:page
+		for="*"
+		name="buildJavascript"
+		class=".util.BuildJavascript"
+		permission="zope.Public"
+    />
+    
+    <browser:page
+		for=".search.IFind"
+		name="find"
+		class=".search.Find"
+		template="templates/theme/search.pt"
+		permission="zope2.View"
+    />
+    
+    
+    <!--   SUB VIEWS   -->
+ 	<browser:page
+		for="*"
+		name="sv_all_databases"
+		class=".subviews.SubViewHook"
+		template="templates/theme/sv_all_databases.pt"
+		permission="zope2.View"
+    />
+    
+    <browser:page
+		for="*"
+		name="sv_featured_book"
+		class=".featured.FeaturedView"
+		template="templates/featured/book.pt"
+		permission="zope2.View"
+		allowed_interface=".util.ITemplateTool"
+    />
+
+    <browser:page
+		for="*"
+		name="sv_featured_website"
+		class=".featured.FeaturedView"
+		template="templates/featured/website.pt"
+		permission="zope2.View"
+		allowed_interface=".util.ITemplateTool"
+    />
+
+    <browser:page
+		for="*"
+		name="sv_nav_disabled"
+		class=".subviews.SubBrowserView"
+		template="templates/theme/sv_nav_disabled.pt"
+		permission="zope2.View"
+    />
+    
+    <browser:page
+		for=".search.IFind"
+		name="sv_find_more"
+		class=".search.FindCourse"
+		template="templates/theme/sv_find_course.pt"
+		permission="zope2.View"
+    />
+	
+	<browser:page
+		for="*"
+		name="sv_everything"
+		class=".subviews.SubViewTabs"
+		template="templates/theme/sv_everything.pt"
+		permission="zope2.View"
+	/>
+	<browser:page
+		for="*"
+		name="sv_guides"
+		class=".subviews.SubBrowserView"
+		template="templates/theme/sv_guides.pt"
+		permission="zope2.View"
+	/>
+
+	<browser:page
+		for="*"
+		name="sv_hours"
+		template="templates/theme/sv_hours.pt"
+		class=".subviews.SubBrowserView"
+		permission="zope2.View"
+	/>
+	
+	<browser:page
+		for="*"
+		name="sv_breadcrumbs"
+		template="templates/theme/sv_breadcrumbs.pt"
+		class=".subviews.SubViewBreadCrumbs"
+		permission="zope.Public"
+	/>
+	
+	<browser:page
+		for="*"
+		name="sv_navigation_bar"
+		template="templates/theme/sv_navigation_bar.pt"
+		class=".subviews.SubBrowserView"
+		permission="zope.Public"
+	/>
+	
+	
+	<!-- FEATURED -->
+   	<browser:page
+		for=".featured.IAllowFeaturedBooks"
+		name="edit_featured"
+		class=".featured.FeaturedTab"
+		permission="zope2.View"
+    />
+   	<browser:page
+		for=".featured.IAllowFeaturedWebsites"
+		name="edit_featured"
+		class=".featured.FeaturedTab"
+		permission="zope2.View"
+    />
+	
+	
+	
+	
+  <!-- Viewlets registration -->
+
+	<browser:viewlet
+      name="uwosh.librarytheme.header"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      class=".viewlets.ViewletBaseTemplate"
+      template="templates/theme/viewlet_header.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="uwosh.librarytheme.feedback"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".viewlets.FeedbackViewlet"
+      template="templates/theme/viewlet_feedback.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+      
+  <browser:viewlet
+      name="uwosh.librarytheme.footer"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".viewlets.ViewletBaseTemplate"
+      template="templates/theme/viewlet_footer.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+      
+  <browser:viewlet
+      name="uwosh.librarytheme.maintenance"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      class=".viewlets.MaintenanceViewlet"
+      template="templates/theme/viewlet_maintenance.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+      
+	  
+  <!-- Override Plone.Comments Viewlet -->
+  <browser:viewlet
+	  name="plone.comments"
+	  manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+	  class="plone.app.layout.viewlets.comments.CommentsViewlet"
+	  template="templates/theme/viewlet_comments.pt"
+	  for="Products.CMFCore.interfaces.IContentish"
+	  layer=".interfaces.IThemeSpecific"
+	  permission="zope2.View"
+	  />
+      
+      
+  <!-- Zope 3 browser resources -->
+  
+  <browser:resourceDirectory
+      name="uwosh.librarytheme.templates"
+      directory="templates"
+      layer=".interfaces.IThemeSpecific"
+      />
+      
+  <browser:resourceDirectory
+      name="uwosh.librarytheme.javascripts"
+      directory="javascripts"
+      layer=".interfaces.IThemeSpecific"
+      />
+      
+  <browser:resourceDirectory
+      name="uwosh.librarytheme.images"
+      directory="images"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+  <browser:resourceDirectory
+      name="uwosh.librarytheme.stylesheets"
+      directory="stylesheets"
+      layer=".interfaces.IThemeSpecific"
+      />
+      
+      
+</configure>

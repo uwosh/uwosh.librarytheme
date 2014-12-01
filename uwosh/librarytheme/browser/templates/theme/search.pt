@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+	<metal:block fill-slot="style_slot">
+		<style>
+			#breadcrumbs-home, .breadcrumbSeparator { display: none; }
+			
+			.library_search_in { width: 540px !important; }
+			.library_home_title {
+				background-image: url("++resource++uwosh.librarytheme.stylesheets/images/siteActionsBak.jpg");
+			    background-color: #4A4A4C;
+			    border-color: black;
+			    border-style: solid;
+			    border-width: 0 0 1px;
+				color: white;
+			    padding-left: 10px;
+			}
+			#content-core .library_search_hidden { display: block !important; background-color: transparent; }
+			#content-core .library_search_in { width: 560px;}
+			#content-core .library_search_input_container { background-color: transparent; }
+			#content-core .library_search_hidden_box { box-shadow: none; }
+			
+			
+			#content-core form {
+				background-color: #DDDDDD;
+			    border: 1px solid #CCCCCC;
+			    border-radius: 10px;
+			    padding: 8px 20px;
+			}
+			#content-core form * {
+				vertical-align: middle;
+			}
+			#content-core form input {
+				border-color: #AAAAAA;
+			    border-radius: 3px;
+			}
+			#content-core form input[name="q"]:focus {
+				box-shadow: 0 0 3px 1px #69BAFC;
+			}
+			
+		</style>
+	</metal:block>
+
+	<metal:content-title fill-slot="content-title">
+		<h1 tal:condition="python:view.search_type=='courses'" class="documentFirstHeading">Search for Course Pages</h1>
+		<h1 tal:condition="python:view.search_type=='website'" class="documentFirstHeading">Search for Website Pages</h1>
+	</metal:content-title>
+	
+	<metal:content-description fill-slot="content-description">
+		<!-- Do nothing, remove Description -->
+	</metal:content-description>
+ 
+ 
+ 
+	<metal:content-core fill-slot="content-core">
+		<tal:insert condition="python:view.search_cat=='more'" content="structure context/sv_find_more" />
+		
+		<!-- JS DISABLED -->
+		<tal:condition condition="python:view.search_cat!='more'">
+			<div>
+				<span>
+					We are no longer supporting seperate services for book and article searching.  
+					Please use the new search interface on the homepage.
+				</span>
+				<br />
+				<br />
+				<a tal:attributes="href view/portal/absolute_url">Back to homepage.</a>
+			</div>
+		</tal:condition>
+		<!-- END: JS DISABLED -->
+		
+	</metal:content-core>
+
+			
+
+</body>
+</html>

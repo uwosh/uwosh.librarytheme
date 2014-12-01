@@ -1,0 +1,40 @@
+<div id="library_search_nav">
+	<div id="library_nav_left">
+		<!-- JS Enabled -->
+	    <dl id="library_tabs" class="enableFormTabbing js_enabled">
+			<dt id="fieldsetlegend-tab1">
+	        	<a href="#fieldsetlegend-tab0">Articles, Books &amp; More</a>
+			</dt>
+			<dt id="fieldsetlegend-tab2">
+	        	<a href="#fieldsetlegend-tab2" class="wooter">Course Reserves &amp; Website</a> 
+			</dt>
+			
+			<dd id="fieldset-tab1" class="library_nav">
+				<tal:block tal:content="structure context/sv_everything"/>
+			</dd>
+			<dd id="fieldset-tab2" class="library_nav">
+				<tal:block tal:content="structure context/sv_guides"/>
+			</dd>
+	    </dl>
+		<!-- JS Disabled --><tal:js content="structure context/sv_nav_disabled" />
+	</div>
+	
+	<div id="library_nav_right">
+		<div class="library_hours_tab">
+			<tal:block tal:content="structure context/sv_hours"/>
+		</div>
+		<div class="library_nav library_text_center">
+			<a class="gat_ask_img" tal:attributes="href string:${view/portal/absolute_url}/help">
+				<img tal:attributes="src python: view.portal.absolute_url() + '/++resource++uwosh.librarytheme.images/ask-a-librarian-2.png'" alt="Ask a Librarian" class="library_big_marg_top" />
+			</a>
+			<div style="font-size: 11px;">
+				<tal:block tal:content="structure context/chat-widget"></tal:block>
+				<a class="gat_ask_link" tal:attributes="href string:${view/portal/absolute_url}/help">Email</a><span> | </span>
+				<a class="gat_ask_link" tal:attributes="href string:${view/portal/absolute_url}/help">Phone</a><span> | </span>
+				<a class="gat_ask_link" tal:attributes="href string:${view/portal/absolute_url}/research/schedule-research-help">Schedule Help</a>
+			</div>
+		</div>
+	</div>
+	<div class="library_clear"></div>
+	
+</div>

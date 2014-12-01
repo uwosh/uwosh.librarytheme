@@ -1,0 +1,26 @@
+<tal:block on-error="nothing"
+           condition="python: view.has_data('book')"
+		   define="book python: view.get_data['book']">
+	<tal:block condition="python:( book['bibid'] != '')">
+		<div class="library_headline">Featured Book</div>
+		<div class="lib_featured_box">
+			<div class="lib_featured_book_l">
+				<a tal:attributes="href string:${view/portal/absolute_url}/getItem?bibid=${book/bibid}&query=voyager">
+				<img class="syndetic-image"
+				     tal:attributes="src string:${context/absolute_url}/++resource++uwosh.librarytheme.images/loading_preview.png;
+				                     data-isbn book/ISBN;" 
+					 alt="Book Preview" width="60"/>
+				</a>
+			</div>
+			<div class="lib_featured_book_r">
+				<div>
+					<a tal:content="book/Title" tal:attributes="href string:${view/portal/absolute_url}/getItem?bibid=${book/bibid}&query=voyager"></a>
+				</div>
+				<div tal:content="book/author"></div>
+				<div tal:content="book/location"></div>
+			</div>
+			
+			<div class="library_clear"></div>
+		</div>
+	</tal:block>
+</tal:block>

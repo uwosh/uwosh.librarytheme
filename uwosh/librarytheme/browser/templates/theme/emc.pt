@@ -1,0 +1,236 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+
+	<metal:block fill-slot="style_slot">
+		<style>
+			.emc_content{ width: 630px; }
+			.emc_left{ float: left; width: 350px; height: 600px; }
+			.emc_right{ float: left; margin-left: 10px; width: 270px; height: 600px; }
+			.emc_search_box { padding: 10px; width: 270px; }
+			.emc_search_input { font-size: 12px; height: 20px; width: 215px; }
+			.emc_search_input_pad{ padding-top: 4px; }
+			.emc_search_input_pad_x{ padding-left: 4px; padding-right: 3px; padding-top: 6px; }
+			
+			.emc_search_selection {
+				background-color: #FCFCFC;
+			    border-color: #666666 #DDDDDD #DDDDDD #666666;
+			    border-style: solid;
+			    border-width: 1px;
+			}
+			
+			.emc_box { padding: 10px; }
+			.emc-res-links { padding: 10px; width: 250px; }
+			.emc-res-links > a { font-weight: bold; }
+			.emc-res-links > div { padding-left: 10px; }
+			
+		</style>
+	</metal:block>
+
+
+	<metal:content-title fill-slot="content-title">
+		<h1 id="parent-fieldname-title" class="documentFirstHeading kssattr-atfieldname-title kssattr-templateId-kss_generic_macros kssattr-macro-title-field-view" 
+		tal:content="string:${context/Title} - Education Materials Center"/>
+	</metal:content-title>
+
+
+	<metal:content-description fill-slot="content-description">
+		<tal:block condition="python: context.getField('showDescription').getAccessor(context)()">
+			<div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+			  Generic KSS Description. Is rendered with class="documentDescription".
+			</div>
+		</tal:block>
+	</metal:content-description>
+
+	
+	<metal:content-core fill-slot="content-core">
+	
+		<div class="emc_content">
+			
+			<div class="emc_left">
+				
+				<div class="library_headline">EMC Resources</div>
+				
+				<div class="emc_box">
+					
+					<div>
+						<div class="library_left">
+							<a href="lesson-plans">
+								<img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/emc-lessons.png" alt="Lesson Plans" />
+						    </a>
+						</div>
+						<div class="library_right emc-res-links">
+							<a href="lesson-plans">Lesson Plans</a>
+							<div>
+								<a href="lesson-plans/special-education">Special Ed,</a>
+								<a href="lesson-plans/science">Science,</a>
+								<a href="lesson-plans/social-studies-1">Social Studies,</a>
+								<a href="lesson-plans">More...</a>
+							</div>
+						</div>
+						<div class="library_clear"></div>
+					</div>
+					
+					<br />
+				
+					<div>
+						<div class="library_left">
+							<a href="childrens-literature">
+								<img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/emc-childs-lit.png" alt="Childrens Lit." />
+						    </a>
+						</div>
+						<div class="library_right emc-res-links">
+							<a href="childrens-literature">Children's &amp; Young Adult Literature</a>
+							<div>
+								<a href="childrens-literature/#finding-reviews">Book Reviews,</a>
+								<a href="reading-levels">Reading Levels,</a>
+								<a href="childrens-literature">More...</a>
+							</div>
+						</div>
+						<div class="library_clear"></div>
+					</div>
+					
+					<br />
+					
+					<div>
+						<div class="library_left">
+							<a href="education-research">
+								<img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/emc-research-db.png" alt="Education Research" />
+						    </a>
+						</div>
+						<div class="library_right emc-res-links">
+							<a href="education-research">Education Research</a>
+							<div>
+								<a href="education-research/research-databases">Databases,</a>
+								<a href="education-research/standards">Standards,</a>
+								<a href="education-research/statistical-data">Statistics,</a>
+								<a href="education-research">More...</a>
+							</div>
+						</div>
+						<div class="library_clear"></div>
+					</div>
+					
+					<br />
+					
+					<div>
+						<div class="library_left">
+							<a href="praxis">
+								<img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/emc-praxis.png" alt="Praxis Study" />
+						    </a>
+						</div>
+						<div class="library_right emc-res-links">
+							<a href="test-study-materials">Praxis &amp; Wisconsin Foundations of Reading Test Study Materials</a>
+							<div></div>
+						</div>
+						<div class="library_clear"></div>
+					</div>
+					
+				
+				</div>
+				
+				<br /><br />
+				
+				<!-- SEARCH BOX -->
+				<div class="library_headline">Find Books &amp; Videos in the EMC</div>
+				<div class="emc_box">
+					<form method="get" action="http://oshlib.wisconsin.edu/vwebv/search">
+					    <input class="emc_search_input" type="text" maxlength="100" value="" name="searchArg" />
+						<input type="hidden" value="en_US" name="sk" />
+					    <input type="hidden" value="50" name="recCount" />
+					    <input type="hidden" value="1" name="searchType" />
+					    <input type="hidden" value="GKEY^*" />
+					    <input class="library_search_button" type="submit" value="Search" name="SUBMIT" />
+					    
+					    <div class="emc_search_input_pad"> 
+					        <div class="library_left library_text_vmiddle">
+					            <input class="library_input_no_border" type="radio" value="GKEY^*" name="searchCode" checked="checked" /><span>Keywords</span>
+					            <input class="library_input_no_border" type="radio" value="TALL" name="searchCode" /><span>Title</span>
+					            <input class="library_input_no_border" type="radio" value="NAME+" name="searchCode" /><span>Author</span>
+					        </div>
+							<div class="library_right" style="padding-top: 1px;">
+			            		<a href="http://oshlib.wisconsin.edu/vwebv/searchAdvanced" >Advanced Search</a>
+							</div>
+							<div class="library_clear"></div>
+					    </div>
+					
+						<div class="emc_search_input_pad_x">
+							<div class="library_left">
+								<select name="limitTo" class="emc_search_selection">
+									<option value="LOCA=EMC (Education Materials Center)">EMC Collection</option>
+									<option value="LOCA=EMC-Fiction">EMC-Fiction</option>
+									<option value="LOCA=EMC-Non-Fiction">EMC-Non-Fiction</option>
+									<option value="LOCA=EMC-Picture Books">EMC-Picture Books</option>
+									<option value="LOCA=EMC-Reference">EMC-Reference</option>
+									<option value="LOCA=EMC-Software">EMC-Software</option>
+									<option value="LOCA=EMC-Sound Recordings">EMC-Sound Recordings</option>
+									<option value="LOCA=EMC-Teaching Ideas">EMC-Teaching Ideas</option>
+									<option value="LOCA=EMC-Textbooks">EMC-Textbooks</option>
+									<option value="LOCA=EMC-Videos/DVDs">EMC Videos</option>
+								</select>
+							</div>
+							<div class="library_clear"></div>
+						</div>
+					</form>
+				</div>
+				<!-- SEARCH BOX -->
+				
+			</div>
+			
+			<div class="emc_right">
+			
+				<!-- NEWS -->
+				<tal:block define="news python:view.get_news(['EMC'],3);">
+					<div class="library_headline">
+						<a tal:attributes="href string:${view/portal/absolute_url}/news/topics/EMC" style="color:black !important;">EMC News</a>
+					</div>
+					<ul>
+						<li><a tal:attributes="href string:${view/portal/absolute_url}/news/topics/EMC">Current EMC News</a></li>
+					</ul>
+					
+					<ul>
+						<li tal:repeat="node news" >
+							<a tal:attributes="href node/getURL" tal:content="python: view.shorten_text(node['Title'],40)" />
+						</li>
+					</ul>
+					
+					<div class="library_text_right library_small_pad_b" tal:condition="python:context.portal_membership.checkPermission('Add portal content',context)" 
+					     tal:define="link string:${view/portal/absolute_url}/news/createObject?type_name=WeblogEntry">
+						<a tal:attributes="href link" style="text-decoration: none !important;">
+							<img style="text-decoration: none !important;" tal:attributes="src string:${view/portal/absolute_url}/portal_skins/plone_images/edit.png" />
+						</a>
+						<a tal:attributes="href link">Add News Item?</a>
+					</div>
+					
+				</tal:block>
+				<!-- NEWS -->
+				
+				<br/><br/>
+				
+				<!-- FEATURED BOOK -->
+				<tal:block content="structure context/sv_featured_book" />
+				
+				<br/><br/>
+				
+				<!-- FEATURED DB OR WEBSITE -->
+				<tal:block content="structure context/sv_featured_website" />
+				
+			</div>
+			
+			<div class="library_clear"></div>
+			
+			
+			
+		</div>
+	
+	
+	
+	
+			
+	
+	</metal:content-core>
+
+</body>
+</html>

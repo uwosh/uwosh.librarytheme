@@ -1,0 +1,174 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+	<metal:block fill-slot="style_slot">
+		<link href="++resource++uwosh.librarytheme.stylesheets/homepage.css" media="screen" type="text/css" rel="stylesheet" />
+	</metal:block>
+	
+	<metal:content-title fill-slot="content-title">
+		<!-- Do nothing, remove Title from Home page  -->
+	</metal:content-title>
+
+
+	<metal:content fill-slot="content">
+		<div class="hp_space"></div>
+		
+		<div id="library_search_nav" >
+		    <dl id="library_tabs" class="enableFormTabbing js_enabled library_tabs">
+		    	
+				<dt id="fieldsetlegend-tab1">
+		        	<a href="#fieldsetlegend-tab1">Articles, Books & More</a>
+				</dt>
+				<dt id="fieldsetlegend-tab2">
+		        	<a class="selected" href="#fieldsetlegend-tab2">Course Reserves &amp; Website</a>
+				</dt>
+
+				<dd id="fieldset-tab1" class="library_nav">
+					<tal:block tal:content="structure context/sv_everything"/>
+				</dd>
+				<dd id="fieldset-tab2" class="library_nav">
+					<tal:block tal:content="structure context/sv_guides"/>
+				</dd>
+		    </dl>
+			<!-- JS Disabled -->
+			<tal:js content="structure context/sv_nav_disabled" />
+			<!-- END: JS Disabled -->
+		</div>
+	
+		<div class="hp_space"></div>
+	
+		<div class="hp_content">
+				
+			<div class="hp_help hp_box library_links">
+			
+				<div class="library_left hp_help_space" style="padding-left: 30px;">
+					<span class="libraryh3lp-container">
+						<span class="libraryh3lp" style="display:none;" jid="polk-library-ref@chat.libraryh3lp.com">
+							<a class="gat_chat_lh" href="#" onclick="window.open('http://libraryh3lp.com/chat/polk-library-ref@chat.libraryh3lp.com?skin=3760&amp;identity=librarian&amp;sounds=true', 'chat', 'resizable=1,width=600,height=350'); return false;">
+								<img alt="Chat" tal:attributes="src string:${context/absolute_url}/++resource++uwosh.librarytheme.images/ask-a-librarian-hp.png;" />
+							</a>
+						</span>
+						
+						<span class="libraryh3lp">
+							<a class="gat_chat_qp" href="http://www.questionpoint.org/crs/servlet/org.oclc.admin.BuildForm?&page=frame&institution=10376&type=2&language=1">
+								<img alt="Chat" tal:attributes="src string:${context/absolute_url}/++resource++uwosh.librarytheme.images/ask-a-librarian-hp.png;" />
+							</a>
+						</span>
+					</span>
+				</div>
+				
+				<div class="hp_help_text hp_help_space library_left" style="margin-top: 23px;">
+					<span class="libraryh3lp-container">
+						<span class="libraryh3lp" style="display:none;" jid="polk-library-ref@chat.libraryh3lp.com">
+							<a class="gat_chat_lh" href="#" onclick="window.open('http://libraryh3lp.com/chat/polk-library-ref@chat.libraryh3lp.com?skin=3760&amp;identity=librarian&amp;sounds=true', 'chat', 'resizable=1,width=600,height=350'); return false;">
+								Chat Now
+							</a>
+						</span>
+						
+						<span class="libraryh3lp">
+							<a class="gat_chat_qp" href="http://www.questionpoint.org/crs/servlet/org.oclc.admin.BuildForm?&page=frame&institution=10376&type=2&language=1">
+								Chat Now
+							</a>
+						</span>
+					</span>
+					<span> | </span>
+					<a class="gat_ask_link" tal:attributes="href string:${context/absolute_url}/help">Email</a>
+					<span> | </span>
+					<a class="gat_ask_link" tal:attributes="href string:${context/absolute_url}/help">Phone</a><span>
+					<span> | </span>
+					<a class="gat_ask_link" tal:attributes="href string:${context/absolute_url}/research/schedule-research-help">Schedule Research Help</a>
+				</div>
+
+			</div>
+				
+			<div class="hp_space"></div>
+				
+				<div id="hp_news" class="hp_box library_left" 
+				     tal:define="news python:view.get_news(['Headline News'],5,unlimited=True);">
+					
+					<div class="hp_news_heading">
+						<a href="news">News</a>
+					</div>
+					<ul class="library_links">
+						<li tal:repeat="node news">
+							<a class="gat_news_item" tal:attributes="href node/getURL; title string:${node/Title}" 
+							   tal:content="python: view.shorten_text(node['Title'],50)" />
+						</li>
+						<li>
+							<a href="news">More news...</a>
+						</li>
+					</ul>
+					<div id="hp_social">
+						<a class="gat_social_item" href="http://www.facebook.com/pages/Oshkosh-WI/Polk-Library-UW-Oshkosh/54591482475">
+							<img alt="Facebook" src="http://www.uwosh.edu/library/images/facebook.png" />
+						</a>
+						<a class="gat_social_item" href="http://twitter.com/polklibrary">
+							<img alt="Twitter" src="http://www.uwosh.edu/library/images/twitter.png" />
+						</a>
+					</div>
+				</div>
+				
+				<div id="hp_featured" class="library_left" tal:define="featured view/get_featured_item" tal:condition="featured">
+		
+					<span class="featured_item_l gat_featured_next">
+						<img tal:attributes="src string:${context/absolute_url}/++resource++uwosh.librarytheme.stylesheets/images/ac-arrow-left.png;" alt="Arrow Left" />
+					</span>	
+					<a class="gat_featured_item" tal:attributes="href featured/getURL">
+						<img tal:attributes="src string:${featured/getURL}/imageReference; alt featured/Title" />
+					</a>
+					<span class="featured_item_r gat_featured_next">
+						<img tal:attributes="src string:${context/absolute_url}/++resource++uwosh.librarytheme.stylesheets/images/ac-arrow-right.png;" alt="Arrow Right" />
+					</span>	
+					
+				</div>
+				
+				<div class="library_clear"></div>
+		</div>
+		
+		<div class="hp_space"></div>
+		
+	    <tal:comment condition="nothing"> This is for the edit bar </tal:comment>
+		<tal:block define="nodes view/getRootContents; show_this python:(len(nodes['areas']) > 0)">
+			<div tal:condition="context/@@plone/showEditableBorder">
+			    <div id="edit-bar" tal:content="structure provider:plone.contentviews" />
+			</div>
+			
+			<div tal:condition="show_this">
+				<div class="contentActions" tal:condition="not: context/@@plone/showEditableBorder">&nbsp;</div>
+				<div class="library_home_edit_box" >
+					
+					<div class="library_left lib_admin_l">
+						<div class="lib_admin_h"> Your website areas</div>
+						<div tal:repeat="node python:nodes['areas']">
+							<a tal:attributes="href node/url" tal:content="node/name" />
+						</div>
+					</div>
+					
+					<div class="library_left lib_admin_r">
+						<div class="lib_admin_h"> Past modified content in your areas </div>
+						<div tal:repeat="node python:nodes['modified']">
+							<a class="lib_admin_a" tal:attributes="href node/getURL" tal:content="node/Title" />
+							<span class="lib_admin_a" tal:condition="python:view.checkedOutCopy(node['id'])">(Checkout Copy)</span>
+							<span> modified on </span>
+							<span tal:content="python: view.formatDate(node['modified'])" />
+						</div>
+						<div tal:define="next_set python: (int(view.limit) + 20)">
+							<a class="lib_admin_a lib_admin_i" tal:attributes="href string:${context/absolute_url}/?limit=${next_set}">(Show More Results)</a>
+						</div>
+					</div>
+					<div class="library_clear"></div>
+					
+				</div>
+			</div>
+		</tal:block>
+		
+	</metal:content>
+
+			
+
+</body>
+</html>

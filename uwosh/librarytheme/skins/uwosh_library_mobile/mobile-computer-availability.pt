@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Computer Availability</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script>
+		$(document).bind("mobileinit", function(){
+			// Turn off jQuery Mobile's default ajax behavior
+			$.mobile.ajaxEnabled = false;
+			$.mobile.hashListeningEnabled = false;
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src='http://www.uwosh.edu/library/++resource++uwosh.librarytheme.javascripts/gat.js'></script>
+</head>
+<body>
+<div data-role="page" id="page" data-theme="e">
+    <div data-role="header"> 
+	<a data-role="button" href="http://www.uwosh.edu/library/mobile" data-icon="back" id="back">Back</a>
+         <h1>Polk Library</h1>
+    </div> <!-- end header -->
+	
+<div class="computer-availability-page">
+    
+    <br />
+    <iframe src="http://www.uwosh.edu/library/computer_availability_plain" width="1000px" height="1500px" frameBorder="0" />
+    <br />
+    
+</div>
+
+</div>	
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        
+        // Tracking Settings
+        GAT.setPageTracker("UA-25321418-1"); // Test Analytics
+        GAT.consoleOut(false);
+        
+        // -- START ----------------
+        // We are not tracking IP Addresses.  Each individual is placed into a user group.  The user group data tracked 
+        // is as follows:  External, Instructional, Internal Public, Internal Staff.
+		var usergroup_timeout = setTimeout(function(){
+			GAT.setCustomVar(1, "Location", "JS Error", 3); // Set if response takes to long.
+		},2000);
+		$.getJSON("http://www.uwosh.edu/library/ws/getAnalyticsUserGroup?alt=jsonp&callback=?",function(data){
+			GAT.setCustomVar(1, "Location", data.group, 3);
+			clearTimeout(usergroup_timeout);
+			usergroup_timeout = null;
+		});
+		// Track mobile platform		
+		GAT.setCustomVar(2, "Platform", "Mobile", 3);
+			
+        // -- END ----------------
+		GAT.trackPageview("/library/mobile-computer-availability/");
+        
+    });
+</script>
+
+</body>
+</html>

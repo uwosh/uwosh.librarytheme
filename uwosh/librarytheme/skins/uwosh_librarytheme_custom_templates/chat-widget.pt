@@ -1,0 +1,17 @@
+<span class="libraryh3lp-container">
+	<span class="libraryh3lp" style="display:none;" jid="polk-library-ref@chat.libraryh3lp.com">
+		<a class="gat_chat_lh" href="#" onclick="window.open('http://libraryh3lp.com/chat/polk-library-ref@chat.libraryh3lp.com?skin=3760&amp;identity=librarian&amp;sounds=true', 'chat', 'resizable=1,width=600,height=350'); return false;">
+		Chat
+		</a>
+		<span> | </span>
+	</span>
+	
+	<span class="libraryh3lp">
+		<a class="gat_chat_qp" href="http://www.questionpoint.org/crs/servlet/org.oclc.admin.BuildForm?&page=frame&institution=10376&type=2&language=1">
+			Chat
+		</a>
+		<span> | </span>
+	</span>
+	
+</span>
+

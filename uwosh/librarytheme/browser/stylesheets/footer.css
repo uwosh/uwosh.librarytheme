@@ -1,0 +1,41 @@
+/*
+ * THIS CSS IS ONLY FOR FOOTERS ON EXTERNAL SITES
+ * - WARNING:  This css could change at with any updates.
+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+	.library_footer_img{margin-bottom: 5px;}
+}
+
+.library_footer  {
+	font: 69% "Helvetica",Verdana,Lucida,Arial,sans-serif;
+	height: 200px;
+	width: 920px;
+} 
+.library_footer_content { background-color: #f0f0f0; height: 200px; width: 920px; }
+.library_footer_heading > a { color: black !important; text-decoration: none !important; }
+.library_footer a { color: #444444; text-decoration: none !important; }
+.library_footer a:hover { text-decoration: underline !important; }
+.library_footer ul {
+	background-image: url("++resource++uwosh.librarytheme.stylesheets/images/vline.png");
+	background-position: top right;
+	background-repeat: no-repeat;
+	float: left;
+	line-height: 17px;
+	margin-left: 15px;
+    padding-left: 0px;
+    padding-right: 5px;
+    width: 164px;
+	height: 190px;
+}
+.library_footer_no_side { background-image: none !important; }
+.library_footer ul li { list-style-type: none !important; }
+.library_footer_sub_cat { height: 7px; }
+.library_footer_heading { font-weight: bold; font-size: 110%; }
+.library_footer_sub_links{
+    line-height: 0;
+    margin-bottom: 6px;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+.library_footer_sub_links a { color: #555555 !important; }
+.library_footer_img{ height: 10px; border: 0px none; }

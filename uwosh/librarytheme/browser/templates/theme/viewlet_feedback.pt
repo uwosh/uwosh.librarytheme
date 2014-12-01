@@ -1,0 +1,26 @@
+ <!-- Start: if javascript enabled -->
+<div id="library_feedback" class="js_enabled" tal:condition="view/has_suggestion_form">
+	<div>
+		<a tal:attributes="href string:${view/portal/absolute_url}/contact">Suggestion Box</a>
+	</div>
+
+	<div>
+		<textarea id="library_feedback_textbox" name="library_feedback_textbox" rows="2" cols="70"></textarea>
+	</div>
+	
+	<div>
+		<input id="library_feedback_email" type="text" name="" value="youremail@uwosh.edu" size="20" alt="Your Email" />
+		&nbsp;&nbsp;
+		<input id="library_feedback_input"  type="button" name="" value="Share Feedback" />
+	</div>
+	
+	<div id="libary_feedback_side">
+		<img alt="Feedback" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/feedback.png" />
+	</div>
+
+	<!--<div id="libary_feedback_side">
+		<img alt="Donate" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/give-here-side.png" />
+	</div>-->
+	
+</div>
+<!-- End: if javascript enabled -->

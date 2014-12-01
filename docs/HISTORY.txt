@@ -1,0 +1,27 @@
+Changelog
+=========
+
+0.0.3a
+------------------
+- Fixed egg install issue
+
+0.0.2a
+------------------
+- Main Library html,css,javascript
+- EMC site html,css,javascript
+- Government Information site html,css,javascript
+- Library User Portlet setup.
+- Setup layout of viewlets
+- setup custom viewlets and browser views.
+
+
+0.0.1
+------------------
+- Initial Product
+
+
+0.0.1 (xxxx-xx-xx)
+------------------
+
+- Created recipe with ZopeSkel
+  [David Hietpas]

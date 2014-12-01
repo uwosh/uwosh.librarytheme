@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+
+	<metal:block fill-slot="style_slot">
+		<style>
+			.gov_column_l { float: left; width: 300px; }
+			.gov_column_r { float: left; width: 300px; padding-left: 20px; } 
+			.gov_space { height: 15px; }
+			.gov_column_l ul, .gov_column_r ul { margin-left: 5px !important; }
+			.gov_column_l li, .gov_column_r li { list-style-type: none; font-weight: bold; line-height: 1.5em; }
+			.gov_column_r .gov_news  { padding-left: 15px; }
+			.gov_column_r .gov_news li { list-style-type: disc; font-weight: normal; }
+			.gov_fdlp { text-align: center; }
+			.gov_fdlp div { margin-top: 10px; font-weight: bold; }
+		</style>
+	</metal:block>
+
+	<metal:content-description fill-slot="content-description">
+		<tal:block condition="python: context.getField('showDescription').getAccessor(context)()">
+			<div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+			  Generic KSS Description. Is rendered with class="documentDescription".
+			</div>
+		</tal:block>
+	</metal:content-description>
+
+	
+	<metal:content-core fill-slot="content-core">
+	<tal:block define="content python: context.getFolderContents(contentFilter={'sort_on':'getObjPositionInParent'});
+	                   left_column_data python: filter(lambda x: x['Title'].count('Information by') > 0, content);
+	                   right_column_data python: filter(lambda x: x['Title'].count('Information by') == 0, content);
+	                  ">
+		
+			<div class="gov_column_l">
+				
+				<tal:outer tal:repeat="item left_column_data">
+				
+					<div class="library_headline">
+						<a style="color: black !important;" tal:attributes="href item/getURL" tal:content="item/Title"></a>
+					</div>
+				
+					<tal:inner tal:define="sub_items python: context.portal_catalog.searchResults(path={'query':item.getPath(),'depth':1},sort_on='getObjPositionInParent');">
+						<ul>
+							<li tal:repeat="sub_item sub_items">
+								<a tal:attributes="href sub_item/getURL"  tal:content="sub_item/Title"></a>
+							</li>
+						</ul>
+					</tal:inner>
+					
+					<div class="gov_space"></div>
+					
+				</tal:outer>
+				
+			</div>
+			
+			
+		
+			<div class="gov_column_r">
+				
+				<tal:block define="news python:view.get_news(['Government Information'],3);">
+					<div class="library_headline">
+						<a tal:attributes="href string:${view/portal/absolute_url}/news/topics/Government Information" style="color:black !important;">Government Information News</a>
+					</div>
+					<ul class="gov_news">
+						<li tal:repeat="node news">
+							<a tal:attributes="href node/getURL" tal:content="python: view.shorten_text(node['Title'],40)" />
+						</li>
+						<li tal:condition="not: news">No news</li>
+						<li><a tal:attributes="href string:${view/portal/absolute_url}/news/topics/Government Information">More Government Information News...</a></li>
+					</ul>
+					
+					<div class="library_text_right library_small_pad_b" tal:condition="python:context.portal_membership.checkPermission('Add portal content',context)" 
+					     tal:define="link string:${view/portal/absolute_url}/news/createObject?type_name=WeblogEntry">
+						<a tal:attributes="href link" style="text-decoration: none !important;">
+							<img style="text-decoration: none !important;" tal:attributes="src string:${view/portal/absolute_url}/portal_skins/plone_images/edit.png" />
+						</a>
+						<a tal:attributes="href link">Add News Item?</a>
+					</div>
+					
+					<div class="gov_space"></div>
+					
+				</tal:block>
+				
+				
+				<tal:outer tal:repeat="item right_column_data">
+				
+					<div class="library_headline">
+						<a style="color: black !important;" tal:attributes="href item/getURL" tal:content="item/Title"></a>
+					</div>
+				
+					<tal:inner tal:define="sub_items python: context.portal_catalog.searchResults(path={'query':item.getPath(),'depth':1},sort_on='getObjPositionInParent');">
+						<ul>
+							<li tal:repeat="sub_item sub_items">
+								<a tal:attributes="href sub_item/getURL"  tal:content="sub_item/Title"></a>
+							</li>
+						</ul>
+					</tal:inner>
+					
+					<div class="gov_space"></div>
+					
+				</tal:outer>
+				
+				<br /><br />
+				
+				<div class="gov_fdlp">
+					<a href="http://www.gpo.gov/libraries/">
+						<img src="++resource++uwosh.librarytheme.images/fdlp.png" alt="FDLP" />
+					</a>
+					<div><a href="http://www.gpo.gov/libraries/">Federal Depository Library Program</a></div>
+				</div>
+				
+				
+				
+			</div>
+			<div class="library_clear"></div>
+			
+	</tal:block>
+	</metal:content-core>
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<tal:block define="root_url python:context.portal_url.getPortalObject().absolute_url();">
+
+	<div class="library_footer">
+		<div style="border-top: 2px solid #7b7b7b; margin:0; padding:0;"></div>
+		
+		<div class="library_footer_content">
+			<ul>
+				<li class="library_footer_heading"><a tal:attributes="href string:${root_url}/services">Services</a></li>
+				<li>
+					<a tal:attributes="href string:${root_url}/borrowing/renew-items">My Library Accounts</a>
+					<span class="library_footer_sub">
+						<a class="gat_footer_primo" href="http://uw-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/myAccountMenu.do?vid=OSH">Polk &amp; UW System</a>
+						<span>|</span>
+						<a class="gat_footer_illiad" href="https://wisconsin.hosts.atlas-sys.com/nonshib/gzo/">ILL</a>
+					</span>
+				</li>
+				<li>
+					<a tal:attributes="href string:${root_url}/borrowing">Beyond UW System</a>
+					<span class="library_footer_sub">
+						<a tal:attributes="href string:${root_url}/ill">ILL</a>
+						<span>|</span>
+						<a class="gat_footer_worldcat" href="http://www.remote.uwosh.edu/login?url=http://firstsearch.oclc.org/fsip?dbname=WorldCat&autho=100197471&screen=advanced&entitypersistentWorldCat=?done=http://www.uwosh.edu/library/" title="WorldCat">WorldCat</a>
+						<span>|</span>
+						<a tal:attributes="href string:${root_url}/borrowing">Not sure?</a>
+					</span>
+				</li>
+				
+				<li><a href="http://www.uwosh.edu/library/coursepages">Course Pages</a></li>
+				<li>
+					<a tal:attributes="href string:${root_url}/reserves">Course Reserves
+						<span class="library_footer_sub">
+							<span>eReserves | Traditional</span>
+						</span>
+					</a>
+				</li>
+				<li><a tal:attributes="href string:${root_url}/groupfinder">GroupFinder</a></li>
+
+				<li><a tal:attributes="href string:${root_url}/forms">Online Forms</a></li>
+			</ul>
+			<ul>
+				<li class="library_footer_heading"><a tal:attributes="href string:${root_url}/collections">Collections</a></li>
+				<li><a tal:attributes="href string:${root_url}/emc">Education Materials Center</a></li>
+				<li><a href="http://www.uwosh.edu/archives">Archives &amp; ARC</a></li>
+				<li><a tal:attributes="href string:${root_url}/government">Government Information</a></li>
+				<li><a href="http://oshlib.wisconsin.edu/leisure/">Leisure Reading</a></li>
+				<li class="library_footer_empty"></li>
+				<li><a tal:attributes="href string:${root_url}/collections/ebooks">eBooks Collection</a></li>
+				<li><a href="http://www.remote.uwosh.edu/login?url=http://digital.films.com/PortalPlaylists.aspx?cid=1639&aid=3068">Films on Demand</a></li>
+				<li><a tal:attributes="href string:${root_url}/subjects">Collections by Subject</a></li>
+			</ul>
+			<ul>
+				<li class="library_footer_heading"><a tal:attributes="href string:${root_url}/research">Research Help</a></li>
+				<li>
+					<a class="gat_ask_img" tal:attributes="href string:${root_url}/help">
+						<img tal:attributes="src string:${root_url}/++resource++uwosh.librarytheme.images/ask-a-librarian-2.png" 
+					 		 alt="Ask a Librarian" class="library_footer_img" />
+					</a>
+					<span class="library_footer_sub" style="padding-bottom: 3px; padding-top: 3px;">
+						<tal:block tal:content="structure context/chat-widget"></tal:block>
+						<a class="gat_ask_link" tal:attributes="href string:${root_url}/help">Email</a><span> | </span>
+						<a class="gat_ask_link" tal:attributes="href string:${root_url}/help">Phone</a><span>
+					</span>
+				</li>
+				<li><a class="gat_ask_link" tal:attributes="href string:${root_url}/research/schedule-research-help">Schedule Research Help</a></li>
+				<li>
+					<a tal:attributes="href string:${root_url}/research/citing-sources">Citing Sources</a>
+					<span class="library_footer_sub">
+						<a class="gat_footer_refworks" href="http://www.refworks.com/RWShibboleth/?providerid=https://netid.uwosh.edu/idp/shibboleth">RefWorks</a><span> | </span>
+						<a tal:attributes="href string:${root_url}/help/faq/refworks-help">Help</a><span>
+					</span>
+				
+				</li>
+				
+				<li>
+					<a tal:attributes="href string:${root_url}/help/faq/finding-specific-types-of-materials">How To Find Materials</a>
+					<span class="library_footer_sub">
+						<a tal:attributes="href string:${root_url}/help/faq/finding-specific-types-of-materials/journal-articles">Articles</a>
+						<span>|</span>
+						<a tal:attributes="href string:${root_url}/help/faq/finding-specific-types-of-materials/using-the-catalog">Books</a>
+					</span>
+				</li>
+				<li><a tal:attributes="href string:${root_url}/help/faq/technology">Technology FAQ</a></li>
+				
+			</ul>
+			<ul>
+				<li class="library_footer_heading"><a tal:attributes="href string:${root_url}/community">Community</a></li>
+				<li><a tal:attributes="href string:${root_url}/community/students">Students</a></li>
+				<li><a tal:attributes="href string:${root_url}/community/graduates">Graduate Students</a></li>
+				<li><a tal:attributes="href string:${root_url}/community/faculty-and-staff">Faculty &amp; Staff</a></li>
+				<li><a tal:attributes="href string:${root_url}/community/alumni-and-visitors">Alumni &amp; Visitors</a></li>
+				<li class="library_footer_empty"></li>
+				<li>
+					<a tal:attributes="href string:${root_url}/distance">Distance Education</a>
+					<img src="http://www.uwosh.edu/library/images/de-trans.png" alt="DE" style="height: 15px; margin-top: -4px;" />
+				</li>
+				<li><a tal:attributes="href string:${root_url}/community/disability-services">Disability Services</a></li>
+				<li><a tal:attributes="href string:${root_url}/community/nontraditional">Nontraditional</a></li>
+			</ul>
+			<ul class="library_footer_no_side">
+				<li class="library_footer_heading"><a tal:attributes="href string:${root_url}/about">About</a></li>
+				<li><a tal:attributes="href string:${root_url}/hours">Library Hours</a></li>
+				<li><a tal:attributes="href string:${root_url}/news">Polk Library News</a></li>
+				<li><a tal:attributes="href string:${root_url}/contact">Contact us</a></li>
+				<li><a tal:attributes="href string:${root_url}/staff">Staff &amp; Department Directory</a></li>				
+				<li>
+					<a tal:attributes="href string:${root_url}/about/policies">Library Policies</a>
+					<span class="library_footer_sub">
+						<a tal:attributes="href string:${root_url}/about/policies/privacy-policy">Privacy</a>
+						<span>|</span>
+						<a tal:attributes="href string:${root_url}/circulation">Circulation</a>
+					</span>
+				</li>
+				
+				<li><a tal:attributes="href string:${root_url}/about/polk-library-facts/map-of-the-library">Map of the Library</a></li>
+				<li><a tal:attributes="href string:${root_url}/about/in-the-library-building">In the Library Building</a></li>
+				<li>
+					<img tal:attributes="src string:${root_url}/++resource++uwosh.librarytheme.images/give-here.png" />
+				</li>
+			</ul>
+			<div style="clear:both;"></div>
+		
+		</div>
+	</div>
+
+</tal:block>

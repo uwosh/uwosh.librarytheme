@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+
+	<object name="base_paths" meta_type="Plone Property Sheet">
+		<property name="title" type="string">Base Catalog Paths</property>
+		<property name="help" type="text">These are the root paths for catalog queries.</property>
+		<property name="base_government_path" type="string">/sites1/library/government</property>
+		<property name="base_suggestion_path" type="string">/sites1/library/contact/suggestions</property>
+		<property name="base_emc_path" type="string">/sites1/library/emc</property>
+		<property name="base_featured_path" type="string">/sites1/library/featured</property>
+		<property name="base_services_path" type="string">/sites1/library/services</property>
+		<property name="base_site_message_path" type="string">/sites1/library/site-message-system</property>
+		<property name="base_suggestion_faq_path" type="string">/sites1/library/questions</property>
+		<property name="base_hours_path" type="string">/sites1/library/hours</property>
+	</object>
+
+	<object name="site_news_limits" meta_type="Plone Property Sheet">
+		<property name="title" type="string">News Limits</property>
+		<property name="help" type="text">The Property Name is the ID of what you wish to have limited news on.  This only works with the News Subview!</property>
+		<property name="news_limit_default" type="int">4</property>
+		<property name="library" type="int">4</property>
+		<property name="emc" type="int">3</property>
+		<property name="gov" type="int">3</property>
+	</object>
+	
+	<object name="library_ip_ranges" meta_type="Plone Property Sheet">
+		<property name="title" type="string">IP Ranges</property>
+		<property name="help" type="text">This has the Library IP Categorys for Analytic Tracking.</property>
+		<property name="internal_staff" type="lines" purge="False">
+			<element value="141.233.220.50" />
+		</property>
+		<property name="internal_public" type="lines" purge="False">
+			<element value="" />
+		</property>
+		<property name="instructional" type="lines" purge="False">
+			<element value="" />
+		</property>
+	</object>
+	
+	<object name="site_news_topics" meta_type="Plone Property Sheet">
+		<property name="title" type="string">News Topics</property>
+		<property name="help" type="text">What primary news topic should be associated with what section.</property>
+		<property name="library" type="string"></property>
+		<property name="emc" type="string">EMC</property>
+		<property name="gov" type="string">Government Information</property>
+	</object>
+	
+	
+	<object name="primo_scopes" meta_type="Plone Property Sheet">
+		<property name="title" type="string">Primo Scopes</property>
+		<property name="everything" type="string"></property>
+		<property name="articles" type="string"></property>
+		<property name="oshkosh" type="string"></property>
+		<property name="all_voyagers" type="string"></property>
+		<property name="digital_collections" type="string"></property>
+	</object>
+	
+	<object name="site_javascript" meta_type="Plone Property Sheet">
+		<property name="title" type="string">Javascript Variables</property>
+		<property name="help" type="text">These will be passed to the Javascript library_theme.js allowing the admin to easily change variables.</property>
+		<property name="solr_url" type="string">http://localhost:8080/sites1/libraryapp/ws/getSuggestions</property>
+		<property name="coursepages_url" type="string">http://www.uwosh.edu/library/coursepages/home/getByPsClassNum</property>
+		<property name="articles_journals_msg" type="string">Find Articles in Journals, Magazines, and Newspapers.</property>
+		<property name="journals_msg" type="string">Find Journals by Journal Title.</property>
+		<property name="books_videos_msg" type="string">Find Books, eBooks, DVD's, VHS's and Streaming Videos.</property>
+		<property name="courses_website_msg" type="string">Find Course Pages (reserves &amp; more) and all library services.</property>
+		<property name="feedback_msg" type="string">Please give us some feedback...</property>
+		<property name="autocomplete_delay" type="int">1000</property>
+		<property name="library_hours_url" type="string">http://www.uwosh.edu/library/ws/getLibraryHours?v=2</property>
+	</object>
+		
+</object>

@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="quills.app">
+
+
+  <body>
+    <metal:feed fill-slot="head_slot">
+         <metal:block metal:use-macro="context/quills_header_macros/feed-links"></metal:block>
+    </metal:feed>
+    <div metal:fill-slot="main"
+         tal:define="weblog view/getWeblog;
+                     weblog_content nocall:context">
+
+      <h1 class="documentFirstHeading"
+          tal:content="weblog_content/title_or_id">
+        Weblog title
+      </h1>
+	  
+	  <tal:block tal:content="structure context/sv_breadcrumbs" />
+
+      <p class="documentDescription"
+         tal:content="weblog_content/Description"
+         tal:condition="weblog_content/Description">
+        Weblog Description
+      </p>
+
+
+      <div class="library_content_left">
+        <metal:macro use-macro="context/quills_weblog_macros/list-entries"/>
+      </div>
+      <!--<div tal:replace="structure provider:plone.belowcontentbody" />-->
+
+    </div>
+
+  </body>
+</html>

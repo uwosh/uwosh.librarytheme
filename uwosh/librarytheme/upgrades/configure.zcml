@@ -1,0 +1,585 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="uwosh.librarytheme">
+       
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.2.9b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.2.8b"
+        destination="0.2.9b"
+        handler=".upgrades.upgrade_to_0_2_9b"
+        profile="uwosh.librarytheme:default" />
+            
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.2.7b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.2.6b"
+        destination="0.2.7b"
+        handler=".upgrades.upgrade_to_0_2_7b"
+        profile="uwosh.librarytheme:default" />
+           
+    <gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.2.6b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.2.5b"
+        destination="0.2.6b"
+        handler=".upgrades.upgrade_to_0_2_6b"
+        profile="uwosh.librarytheme:default" />
+        
+    <gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.2.3b"
+        description="uwosh.librarytheme upgrade step"
+        source="*"
+        destination="0.2.3b"
+        handler=".upgrades.upgrade_init"
+        profile="uwosh.librarytheme:default" />
+       
+    <gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.2.4b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.2.3b"
+        destination="0.2.4b"
+        handler=".upgrades.upgrade_to_0_2_4b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.0b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.2.9b"
+        destination="0.3.0b"
+        handler=".upgrades.upgrade_to_0_3_0b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.1b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.0b"
+        destination="0.3.1b"
+        handler=".upgrades.upgrade_to_0_3_1b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.2b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.1b"
+        destination="0.3.2b"
+        handler=".upgrades.upgrade_to_0_3_2b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.3b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.2b"
+        destination="0.3.3b"
+        handler=".upgrades.upgrade_to_0_3_3b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.4b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.3b"
+        destination="0.3.4b"
+        handler=".upgrades.upgrade_to_0_3_4b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.5b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.4b"
+        destination="0.3.5b"
+        handler=".upgrades.upgrade_to_0_3_5b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.6b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.5b"
+        destination="0.3.6b"
+        handler=".upgrades.upgrade_to_0_3_6b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.7b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.6b"
+        destination="0.3.7b"
+        handler=".upgrades.upgrade_to_0_3_7b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.8b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.7b"
+        destination="0.3.8b"
+        handler=".upgrades.upgrade_to_0_3_8b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.9b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.8b"
+        destination="0.3.9b"
+        handler=".upgrades.upgrade_to_0_3_9b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.10b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.9b"
+        destination="0.3.10b"
+        handler=".upgrades.upgrade_to_0_3_10b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.11b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.10b"
+        destination="0.3.11b"
+        handler=".upgrades.upgrade_to_0_3_11b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.12b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.11b"
+        destination="0.3.12b"
+        handler=".upgrades.upgrade_to_0_3_12b"
+        profile="uwosh.librarytheme:default" />
+          
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.13b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.12b"
+        destination="0.3.13b"
+        handler=".upgrades.upgrade_to_0_3_13b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.14b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.13b"
+        destination="0.3.14b"
+        handler=".upgrades.upgrade_to_0_3_14b"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.15b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.14b"
+        destination="0.3.15b"
+        handler=".upgrades.upgrade_to_0_3_15b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.16b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.15b"
+        destination="0.3.16b"
+        handler=".upgrades.upgrade_to_0_3_16b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.17b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.16b"
+        destination="0.3.17b"
+        handler=".upgrades.upgrade_to_0_3_17b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.18b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.17b"
+        destination="0.3.18b"
+        handler=".upgrades.upgrade_to_0_3_18b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.19b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.18b"
+        destination="0.3.19b"
+        handler=".upgrades.upgrade_to_0_3_19b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.20b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.19b"
+        destination="0.3.20b"
+        handler=".upgrades.upgrade_to_0_3_20b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.21b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.20b"
+        destination="0.3.21b"
+        handler=".upgrades.upgrade_to_0_3_21b"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.22b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.21b"
+        destination="0.3.22b"
+        handler=".upgrades.upgrade_to_0_3_22b"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.23b"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.22b"
+        destination="0.3.23b"
+        handler=".upgrades.upgrade_to_0_3_23b"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.24"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.23b"
+        destination="0.3.24"
+        handler=".upgrades.upgrade_to_0_3_24"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.25"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.24"
+        destination="0.3.25"
+        handler=".upgrades.upgrade_to_0_3_25"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.26"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.25"
+        destination="0.3.26"
+        handler=".upgrades.upgrade_to_0_3_26"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.3.27"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.26"
+        destination="0.3.27"
+        handler=".upgrades.upgrade_to_0_3_27"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.0"
+        description="uwosh.librarytheme upgrade step"
+        source="0.3.27"
+        destination="0.4.0"
+        handler=".upgrades.upgrade_to_0_4_0"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.1"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.0"
+        destination="0.4.1"
+        handler=".upgrades.upgrade_to_0_4_1"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.2"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.1"
+        destination="0.4.2"
+        handler=".upgrades.upgrade_to_0_4_2"
+        profile="uwosh.librarytheme:default" />
+        
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.3"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.2"
+        destination="0.4.3"
+        handler=".upgrades.upgrade_to_0_4_3"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.4"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.3"
+        destination="0.4.4"
+        handler=".upgrades.upgrade_to_0_4_4"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.5"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.4"
+        destination="0.4.5"
+        handler=".upgrades.upgrade_to_0_4_5"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.6"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.5"
+        destination="0.4.6"
+        handler=".upgrades.upgrade_to_0_4_6"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.7"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.6"
+        destination="0.4.7"
+        handler=".upgrades.upgrade_to_0_4_7"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.8"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.7"
+        destination="0.4.8"
+        handler=".upgrades.upgrade_to_0_4_8"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.9"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.8"
+        destination="0.4.9"
+        handler=".upgrades.upgrade_to_0_4_9"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.10"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.9"
+        destination="0.4.10"
+        handler=".upgrades.upgrade_to_0_4_10"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.11"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.10"
+        destination="0.4.11"
+        handler=".upgrades.upgrade_to_0_4_11"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.12"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.11"
+        destination="0.4.12"
+        handler=".upgrades.upgrade_to_0_4_12"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.13"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.12"
+        destination="0.4.13"
+        handler=".upgrades.upgrade_to_0_4_13"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.14"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.13"
+        destination="0.4.14"
+        handler=".upgrades.upgrade_to_0_4_14"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.15"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.14"
+        destination="0.4.15"
+        handler=".upgrades.upgrade_to_0_4_15"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.16"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.15"
+        destination="0.4.16"
+        handler=".upgrades.upgrade_to_0_4_16"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.17"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.16"
+        destination="0.4.17"
+        handler=".upgrades.upgrade_to_0_4_17"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.18"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.17"
+        destination="0.4.18"
+        handler=".upgrades.upgrade_to_0_4_18"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.19"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.18"
+        destination="0.4.19"
+        handler=".upgrades.upgrade_to_0_4_19"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.20"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.19"
+        destination="0.4.20"
+        handler=".upgrades.upgrade_to_0_4_20"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.22"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.21"
+        destination="0.4.22"
+        handler=".upgrades.upgrade_to_0_4_22"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.23"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.22"
+        destination="0.4.23"
+        handler=".upgrades.upgrade_to_0_4_23"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.24"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.23"
+        destination="0.4.24"
+        handler=".upgrades.upgrade_to_0_4_24"
+        profile="uwosh.librarytheme:default" />
+       
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.25"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.24"
+        destination="0.4.25"
+        handler=".upgrades.upgrade_to_0_4_25"
+        profile="uwosh.librarytheme:default" />
+		
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.26"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.25"
+        destination="0.4.26"
+        handler=".upgrades.upgrade_to_0_4_26"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.27"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.26"
+        destination="0.4.27"
+        handler=".upgrades.upgrade_to_0_4_27"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.28"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.27"
+        destination="0.4.28"
+        handler=".upgrades.upgrade_to_0_4_28"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.29"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.28"
+        destination="0.4.29"
+        handler=".upgrades.upgrade_to_0_4_29"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.30"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.29"
+        destination="0.4.30"
+        handler=".upgrades.upgrade_to_0_4_30"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.31"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.30"
+        destination="0.4.31"
+        handler=".upgrades.upgrade_to_0_4_31"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.32"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.31"
+        destination="0.4.32"
+        handler=".upgrades.upgrade_to_0_4_32"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.33"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.32"
+        destination="0.4.33"
+        handler=".upgrades.upgrade_to_0_4_33"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.34"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.33"
+        destination="0.4.34"
+        handler=".upgrades.upgrade_to_0_4_34"
+        profile="uwosh.librarytheme:default" />
+      
+	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.35"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.34"
+        destination="0.4.35"
+        handler=".upgrades.upgrade_to_0_4_35"
+        profile="uwosh.librarytheme:default" />
+      
+  	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.36"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.35"
+        destination="0.4.36"
+        handler=".upgrades.upgrade_to_0_4_36"
+        profile="uwosh.librarytheme:default" />  
+      
+  	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.37"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.36"
+        destination="0.4.37"
+        handler=".upgrades.upgrade_to_0_4_37"
+        profile="uwosh.librarytheme:default" />  
+      
+  	<gs:upgradeStep
+        title="Upgrade uwosh.librarytheme to 0.4.38"
+        description="uwosh.librarytheme upgrade step"
+        source="0.4.37"
+        destination="0.4.38"
+        handler=".upgrades.upgrade_to_0_4_38"
+        profile="uwosh.librarytheme:default" />  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+</configure>

@@ -1,0 +1,38 @@
+/* Portlet Reset */
+#portal-columns #pl-guide * { padding: 0; line-height: normal; margin: 0; background-color: transparent;} /* IE */
+#portal-columns #pl-guide * { padding: initial; line-height: initial; margin: initial; background-color: initial;}
+
+/* Portlet CSS */
+#portal-columns #pl-guide * { font-family: "Helvetica",Verdana,Lucida,Arial,sans-serif; }
+#portal-columns #pl-guide h2 { font-size: 16px; }
+#portal-columns #pl-guide h3 { font-size: 14px; }
+#portal-columns #pl-guide h2.small { font-size: 14px; }
+#portal-columns #pl-guide h3.small { font-size: 12px; }
+
+#portal-columns #pl-guide {  background-color: #eeeeee; border: 1px solid #cccccc; padding: 0px 0px 5px 0px }
+#portal-columns #pl-guide > div > h3 { margin: 3px 0px 3px 5px; font-size: 12px; }
+#portal-columns #pl-guide > div > h3 > a{ color: #333333; }
+#portal-columns #pl-guide.pl-customizable > div > h3 { margin: 7px 0px 3px 5px; }
+#portal-columns #pl-guide ul { margin: 0px 0px 0px 20px; }
+#portal-columns #pl-guide ul li { list-style: disc; margin: 2px 0px 2px 0px; }
+#portal-columns #pl-guide #pl-subject { background-color: #3B3B3B; padding: 5px 0px }
+#portal-columns #pl-guide #pl-subject h2, #pl-guide #pl-subject h3 { color: white; border-bottom: none; margin:0px 0px 0px 5px; line-height: 1.0em }
+#portal-columns #pl-guide #pl-subject h2 { font-weight: normal; }
+#portal-columns #pl-guide #pl-subject h3 { font-style: italic; font-weight: normal; color: #BBBBBB; margin-left: 10px; }
+#portal-columns #pl-guide #pl-subject a { text-decoration: none; }
+#portal-columns #pl-guide.pl-generated #pl-news-feed { padding: 5px 0px 0px 0px; }
+#portal-columns #pl-guide.pl-generated #pl-news-feed ul>li { list-style: none; }
+
+/* Books and Film CSS, don't touch */
+#portal-columns #pl-guide #pl-new-books ul { margin: 0; text-align: center; }
+#portal-columns #pl-guide #pl-new-books ul li { display:inline; padding-right: 5px; }
+#portal-columns #pl-guide img.syndetic-image { width: 35px !important; height: 55px; !important }
+#portal-columns #pl-guide span.no-cover-available { width: 30px  !important;  }
+
+#portal-columns #pl-guide #pl-films ul { margin: 0 auto; text-align: center; }
+#portal-columns #pl-guide #pl-films .cover-image { height: 86px; width: 115px; }
+#portal-columns #pl-guide #pl-films ul>li { list-style: none; }
+#portal-columns #pl-guide #pl-films .play-image { position:absolute; margin-left: -85px; margin-top: 15px; width:60px; opacity: 0.8 }
+
+#portal-columns #pl-guide.pl-curved { border-radius: 10px; }
+#portal-columns #pl-guide.pl-curved #pl-subject { border-radius: 10px 10px 0 0; }

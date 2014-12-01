@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- This file holds the setup configuration for the portal_css tool. -->
+
+<object name="portal_css">
+
+ <!-- Stylesheets that will be registered with the portal_css tool are defined
+      here. You can also specify values for existing resources if you need to
+      modify some of their properties.
+      Stylesheet elements accept these parameters:
+      - 'id' (required): it must respect the name of the css or DTML file
+        (case sensitive). '.dtml' suffixes must be ignored.
+      - 'expression' (optional - default: ''): a tal condition.
+      - 'media' (optional - default: ''): possible values: 'screen', 'print',
+        'projection', 'handheld'...
+      - 'rel' (optional - default: 'stylesheet')
+      - 'title' (optional - default: '')
+      - 'rendering' (optional - default: 'import'): 'import', 'link' or
+        'inline'.
+      - 'enabled' (optional - default: True): boolean
+      - 'cookable' (optional - default: True): boolean (aka 'merging allowed')
+      See registerStylesheet() arguments in
+      ResourceRegistries/tools/CSSRegistry.py for the latest list of all
+      available keys and default values.
+      -->
+      
+ <stylesheet title="uwosh.librarytheme.main"
+    id="++resource++uwosh.librarytheme.stylesheets/main.css"
+    media="screen" rel="stylesheet" rendering="import"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression=""/>
+    
+  <stylesheet title="uwosh.library.ui"
+    id="++resource++uwosh.librarytheme.stylesheets/ui-lightness/jquery-ui-1.7.3.custom.css"
+    media="screen" rel="stylesheet" rendering="import"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression=""/>
+
+ <stylesheet title="uwosh.librarytheme.edit"
+    id="++resource++uwosh.librarytheme.stylesheets/edit.css"
+    media="screen" rel="stylesheet" rendering="import"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression="python: (request['ACTUAL_URL'].endswith('/edit') or request['ACTUAL_URL'].endswith('/atct_edit') or request['ACTUAL_URL'].endswith('/base_edit'))"/>
+
+ <stylesheet title="uwosh.librarytheme.print"
+    id="++resource++uwosh.librarytheme.stylesheets/print.css"
+    media="print" rel="stylesheet" rendering="import"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression=""/>
+
+
+</object>

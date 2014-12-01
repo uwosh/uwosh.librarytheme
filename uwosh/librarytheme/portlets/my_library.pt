@@ -1,0 +1,193 @@
+<dl class="portlet portletLibraryUserCustomizationPortlet"
+    i18n:domain="uwosh.librarytheme">
+
+    <dt class="portletHeader">
+	    <form tal:condition="view/cookiesExist" tal:attributes="action context/absolute_url">
+	    	<span>My Library</span>
+			<input type="hidden" name="submit" value="Clear" />
+			<input type="submit" name="default" title="Change my quick links." value=""/>
+		</form>
+		<span tal:condition="not: view/cookiesExist">My Library</span>
+    </dt>
+
+
+	
+    <dd class="portletItem odd" >
+
+		<label>Accounts</label>
+		<div>
+			<a href="">Oshkosh &amp; UW</a>
+		</div>
+		<div>
+			<a href="">Interlibrary Loan</a>
+		</div>		
+		<div>
+			<a href="">More v</a>
+		</div>
+
+		<br />
+
+		<label>Quick Links</label>
+
+		<tal:block condition="not: view/cookiesExist">
+			<!-- NOT CUSTOMIZIED -->
+			<form tal:attributes="action context/absolute_url" method="post">
+	            <div>
+	                I am a:
+					<br/>
+	                <select style="width: 173px" name="group">
+	                    <option value="student" tal:attributes="selected python:view.previous('past_audience','student')">Student</option>
+						<option value="graduate" tal:attributes="selected python:view.previous('past_audience','graduate')">Graduate Student</option>
+	                    <option value="faculty" tal:attributes="selected python:view.previous('past_audience','faculty')">Faculty or Staff Member</option>
+						<option value="visitor" tal:attributes="selected python:view.previous('past_audience','visitor')">Alumnus/a or Visitor</option>
+	                </select>
+	            </div>
+	            
+	            <div>
+	                I am researching:
+					<br/>
+	                <select style="width: 173px" name="guide">
+	                    <option tal:repeat="node view/get_subjects"
+						 		tal:attributes="value node/getPath; selected python:view.previous('past_subject',node['id'])" 
+								tal:content="node/title">default</option>
+	                </select>
+	            </div>
+	            
+	            <div>
+	                <input type="submit" value="Show Quick Links" name="submit" />
+	            </div>
+				
+	        </form>			
+			
+		</tal:block>
+
+
+
+		<tal:block condition="view/cookiesExist">
+			<!-- CUSTOMIZIED -->
+			
+			<!-- AUDIENCE HEADING -->
+	        <div>
+	        	<b>
+	        		<a tal:condition="view/isStudent" class="gat_audience_type gat_audience_link" title="Students" tal:attributes="href python:view.getAudienceHeader('student_guide_link');">Students</a>
+					<a tal:condition="view/isGraduate" class="gat_audience_type gat_audience_link" title="Graduate Students" tal:attributes="href python:view.getAudienceHeader('graduate_guide_link')">Graduate Students</a>
+					<a tal:condition="view/isFaculty" class="gat_audience_type gat_audience_link" title="Faculty & Staff" tal:attributes="href python:view.getAudienceHeader('faculty_guide_link')">Faculty &amp; Staff</a>
+					<a tal:condition="view/isVisitor" class="gat_audience_type gat_audience_link" title="Alumni & Visitors" tal:attributes="href python:view.getAudienceHeader('visitor_guide_link')">Alumni &amp; Visitors</a>
+	        	</b>
+			</div>
+			
+	        <!-- AUDIENCE NEWS -->
+			<div>
+				<ul>
+					<li tal:define="nodes view/getAudNews" tal:condition="python:(len(nodes)>0)">
+						<a class="gat_audience_link" title="News" tal:attributes="href string:${view/portalAbsolute}/${view/getAudienceNewsLink}">News</a>
+						<ul>
+							<li tal:repeat="node nodes">
+		    					<a class="gat_audience_link" tal:attributes="href node/url; title node/name" tal:content="python:(view.shortenText(node['name']))" />
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			
+	        <!-- AUDIENCE CONTENT -->
+	        <div class="lib_marker_aud" tal:condition="view/isStudent">
+	        	<ul>
+	        		<li tal:repeat="node python:view.getAudienceData('student_body_links')"><a class="gat_audience_link" tal:attributes="href node/getURL; title node/Title" tal:content="node/Title" /></li>
+				</ul>
+	        </div>
+	        <div class="lib_marker_aud" tal:condition="view/isGraduate">
+	        	<ul>
+	        		<li tal:repeat="node python:view.getAudienceData('graduate_body_links')"><a class="gat_audience_link" tal:attributes="href node/getURL; title node/Title" tal:content="node/Title" /></li>
+				</ul>
+	        </div>
+	        <div class="lib_marker_aud" tal:condition="view/isFaculty">
+	        	<ul>
+	        		<li tal:repeat="node python:view.getAudienceData('faculty_body_links')"><a class="gat_audience_link" tal:attributes="href node/getURL; title node/Title" tal:content="node/Title" /></li>
+				</ul>
+	        </div>
+	        <div class="lib_marker_aud" tal:condition="view/isVisitor">
+	        	<ul>
+	        		<li tal:repeat="node python:view.getAudienceData('visitor_body_links')"><a class="gat_audience_link" tal:attributes="href node/getURL; title node/Title" tal:content="node/Title" /></li>
+				</ul>
+	        </div>
+			
+			
+			<!-- SUBJECT HEADING -->
+	        <div>
+	        	<a class="gat_subjects_link" tal:attributes="href view/guide/absolute_url; title view/guide/Title">
+					<b class="gat_subject_type lib_blue" tal:content="view/guide/Title" />
+	        		<div style="padding-left: 10px;">Full Subject Guide</div>
+				</a>
+	        </div>
+				
+			<!-- SUBJECT CONTENT -->
+		    <ul>
+				<li tal:define="nodes view/getSubNews" tal:condition="python:(len(nodes)>0)">
+					<a class="gat_subjects_link" title="News" tal:attributes="href string:${view/portalAbsolute}/news/topics/${view/getNewsTopic}">News</a>
+					<ul>
+						<li tal:repeat="node nodes">
+	    					<a class="gat_subjects_link" tal:attributes="href node/url; title node/name;" tal:content="python:(view.shortenText(node['name']))" />
+						</li>
+					</ul>
+				</li>
+					
+	    		<li tal:condition="view/hasArticleContent">
+	    			<a class="gat_subjects_link" title="Research Databases" tal:attributes="href string:${view/guide/absolute_url}/databases">Research Databases</a>
+	    			<ul>
+						<li tal:repeat="node view/getArticleContent">
+							<a class="gat_subjects_db_link" tal:content="python: (view.shortenText(node['title']))" tal:attributes="href python:view.EzProxy(node['is_omit_proxy'])+node['url']; title node/title;" />
+						</li>
+					</ul>
+				</li>
+				
+				<li tal:condition="view/has_reference_and_background">
+	    			<a class="gat_subjects_link" title="Reference &amp; Background" tal:attributes="href string:${view/guide/absolute_url}/background">
+	    				Reference &amp; Background
+					</a>
+				</li>
+				
+				<li tal:condition="view/hasBooks">
+	    			<a class="gat_subjects_link" title="More New Books" tal:content="python: 'Books: ' + view.shortenText(view.getBooksDesc(),18)" tal:attributes="href string:http://oshlib.wisconsin.edu/vwebv/search?searchArg=${view/getBooksRange}&searchCode=CALL&searchType=1&sortBy=PUB_DATE_DESC" />
+				</li>
+				
+				<li tal:condition="python:(len(view.ifHasThenGetEMC()) > 5)">
+	    			<a class="gat_subjects_link" title="K-12 Education Materials" tal:attributes="href view/ifHasThenGetEMC">K-12 Education Materials</a>
+					<ul>
+						<li tal:repeat="node view/getAllEMCLinks">
+							<a class="gat_subjects_link" tal:content="python: (view.shortenText(node['Title']))" tal:attributes="href node/getURL; title node/Title" />
+						</li>
+					</ul>
+				</li>
+				
+				<li tal:condition="python:(len(view.ifHasThenGetGovernment()) > 5)">
+	    			<a class="gat_subjects_link" title="Government Information" tal:attributes="href view/ifHasThenGetGovernment">Government Information</a>
+					<ul>
+						<li tal:repeat="node view/getAllGovLinks">
+							<a class="gat_subjects_link" tal:content="python: (view.shortenText(node['Title']))" tal:attributes="href node/getURL; title node/Title" />
+						</li>
+					</ul>
+				</li>
+				<li class="lib_marker_subh" tal:condition="python:(len(view.ifHasThenGetArchives()) > 5)">
+	    			<a class="gat_subjects_link" title="Archives" tal:attributes="href view/ifHasThenGetArchives">Archive Resources</a>
+					<ul>
+						<li tal:repeat="node view/getAllArchivesLinks">
+							<a class="gat_subjects_link" tal:content="python: (view.shortenText(node['Title']))" tal:attributes="href node/getURL; title node/Title" />
+						</li>
+					</ul>
+				</li>
+	    	</ul>
+			
+			
+			
+			
+			
+			
+			
+		</tal:block>
+		
+		<br />
+		<br />
+    </dd>
+
+</dl>

@@ -1,0 +1,238 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+	<metal:content-title fill-slot="content-title">
+		<h1 id="parent-fieldname-title" class="documentFirstHeading">
+			Edit Site Settings
+		</h1>
+	</metal:content-title>
+	
+	<metal:js fill-slot="javascript_head_slot">
+		<script type="text/javascript">
+			var fn_stack = [];
+			var fn_stack_interval = null;	
+			function fn_stack_processor() { if (fn_stack.length != 0) fn_stack.pop()(); }
+			function zero_pad(num){ if(String(num).length == 1) return "0" + num; return num; }
+			
+			jq(document).ready(function(){
+				
+				jq('#cache-stop').click(function(){ 
+					jq('.cache-status').each(function(i,t){
+						if(jq(t).attr('src').indexOf('icon-loading.gif') > -1)
+							jq(t).attr('src','++resource++uwosh.librarytheme.images/icon-question.png');	
+					});
+					clearInterval(fn_stack_interval);
+					fn_stack = [];
+				});
+				
+				jq('#cache-rebuild').click(function(){
+					
+					jq('.cache-url').each(function(i,t){
+						var url = (jq(t).attr('href') + '/edit').replace('/cache/','/');
+						var type = jq(t).attr('data-type');
+						var marker = t;
+						jq(marker).parent().find('.cache-status').attr('src','++resource++uwosh.librarytheme.images/icon-loading.gif');
+						
+						fn_stack.push(function(){
+							jq.get(url,{'form.submitted':'1','form.button.save':'Update Cache','cacheReference':type},function(r,s){
+								var d = new Date();
+								jq(marker).parent().find('.cache-date').html((zero_pad(d.getMonth()+1)) + '/' + zero_pad(d.getDate()) + '/' + 
+													  d.getFullYear() + ' ' + zero_pad(d.getHours()) + ':' + zero_pad(d.getMinutes()) + ' - ');
+								if (s == 'success') 
+									jq(marker).parent().find('.cache-status').attr('src','++resource++uwosh.librarytheme.images/accept.png');
+								 else 
+									jq(marker).parent().find('.cache-status').attr('src','++resource++uwosh.librarytheme.images/exclamation.png');
+								return false;
+							});
+						});
+					});
+					
+					fn_stack.sort().reverse();
+					fn_stack_interval = setInterval(fn_stack_processor,7000);
+				});
+				
+			});
+		</script>
+		
+	</metal:js>
+	
+	<metal:block fill-slot="style_slot">
+		<style>
+			#content-core label { color: #444444; }
+			#content-core label input { color: black; }
+			.lib-example { color: gray; font-style: italic; font-weight: normal;}
+			.formPanel  { border: 0px none; } 
+			dl.enableFormTabbing dd { padding-top: 0px; }
+			#content fieldset legend { font-weight: bold; border: 1px solid #cccccc; border-radius: 5px; }
+			#content fieldset { background-color: #f0f0f0; border: 1px solid #cccccc; }
+			.cache_red { color: red; font-style: italic; }
+			#fieldset-tab4 img { margin-top: -2px; }
+		</style>
+	</metal:block>
+	
+
+	<metal:content-core fill-slot="content-core">
+			
+		    <dl class="enableFormTabbing">
+		    	
+				<dt id="fieldsetlegend-tab1">
+		        	<a href="#fieldsetlegend-tab1">Site Message</a>
+				</dt>
+				<dt id="fieldsetlegend-tab2">
+		        	<a href="#fieldsetlegend-tab2">Hours</a>
+				</dt>
+				<dt id="fieldsetlegend-tab3">
+		        	<a href="#fieldsetlegend-tab3">Tabs</a>
+				</dt>
+				<dt id="fieldsetlegend-tab4">
+		        	<a href="#fieldsetlegend-tab4">Caches</a>
+				</dt>
+				
+				
+				<dd id="fieldset-tab1">
+					<fieldset>
+						<legend>Site Message</legend>
+						<tal:include content="structure context/warning_system_message"></tal:include>
+					</fieldset>	
+				</dd>
+				
+				<dd id="fieldset-tab2">
+					<fieldset>
+						<legend>Library Hours</legend>
+						
+						<form tal:attributes="action context/absolute_url">
+						
+							<br />
+							<label>Override Library Hours Message<span class="lib-example">&nbsp;(This will replace the "OPEN until 1:00AM" message)</span><br />
+								<input type="text" name="lh_message" size="70" tal:attributes="value python: view.prop('webservice_properties').getProperty('msg_override')" />
+							</label>
+							
+							<br /><br />
+							
+							<label>
+								<input tal:condition="python: view.prop('webservice_properties').getProperty('is_msg_override_on')" type="checkbox" name="lh_override" value="1" checked="checked" />
+								<input tal:condition="python: not view.prop('webservice_properties').getProperty('is_msg_override_on')" type="checkbox" name="lh_override" value="0" />
+								Check to display the override message above.
+							</label>
+							<span class="lib-example">(May take 15 minutes for changes to appear.)</span>
+							
+							<br /><br />
+							
+							<input type="submit" value="Save Library Hours Settings" name="save" />
+							<input type="hidden" value="1" name="hours_submission" />
+							<input type="hidden" value="1" name="submission" />
+						
+						</form>
+					</fieldset>
+				</dd>
+				
+				<dd id="fieldset-tab3">
+					<fieldset>
+						<legend>Site Tabs</legend>
+						
+						<form tal:attributes="action context/absolute_url">
+											
+							<h4><u><i>Articles &amp; Journals</i></u></h4>
+							<label>Articles help text<br />
+								<input type="text" name="articles_help_text" size="70" tal:attributes="value python: view.prop('site_javascript').getProperty('articles_journals_msg')" />
+							</label>
+							<br />
+							<label>Journals help text<br />
+								<input type="text" name="journals_help_text" size="70" tal:attributes="value python: view.prop('site_javascript').getProperty('journals_msg')" />
+							</label>
+							
+							<br /><br />
+							<h4><u><i>Books &amp; Videos</i></u></h4>
+							<label>Books help text<br />
+								<input type="text" name="books_help_text" size="70" tal:attributes="value python: view.prop('site_javascript').getProperty('books_videos_msg')" />
+							</label>
+							
+							<br /><br />
+							<h4><u><i>Course Reserves &amp; Website</i></u></h4>
+							<label>Courses help text<br />
+								<input type="text" name="courses_help_text" size="70" tal:attributes="value python: view.prop('site_javascript').getProperty('courses_website_msg')" />
+							</label>
+							<br />
+							<label>Term code for course searching<br />
+								<input type="text" name="ctc_termcode" tal:attributes="value python: view.prop('webservice_properties').getProperty('current_term_code')" />
+							</label>
+							
+							<br /><br />
+									
+							<input type="submit" value="Save Tab Settings" name="save" />
+							<input type="hidden" value="1" name="tabs_submission" />
+							<input type="hidden" value="1" name="submission" />
+						
+						</form>
+						
+					</fieldset>
+				</dd>
+				
+				<dd id="fieldset-tab4">
+					<fieldset>
+						<legend>Caches</legend>
+						
+						<br />
+						
+						<input id="cache-rebuild" type="button" value="Rebuild All Caches" />
+						<input id="cache-stop" type="button" value="Stop Rebuild" />
+						<span class="lib-example"> This could take several minutes to complete. </span>
+			
+						
+						<br />
+						
+						<tal:block on-error="python: 'An error has occured, please contact the administrator.'"
+						           define="subjects python:context.portal_catalog.searchResults(portal_type='LibrarySubjectGuide',sort_on='sortable_title');
+						                   caches python:context.portal_catalog.searchResults(portal_type='LibraryCache',sort_on='sortable_title');
+										   others python:filter(lambda x: x.getPath().find('/library/subjects/') == -1, caches);">
+							
+							<h4><u><i>Subject Caches</i></u></h4>
+							<span style="font-weight: bold; margin-left: 32px;"> Last rebuilt on - Link to cache</span>
+							<div tal:repeat="node subjects">
+								<tal:block define="cache python: node.getObject().cache" on-error="string:${node/Title} has no cache.">
+									<img class="cache-status" tal:condition="python: not cache.modified().isCurrentDay()" src="++resource++uwosh.librarytheme.images/exclamation.png" alt="Warn" />
+									<img class="cache-status" tal:condition="python: cache.modified().isCurrentDay()" src="++resource++uwosh.librarytheme.images/accept.png" alt="Good" />
+									<span class="cache-date"   tal:content="python: cache.modified().strftime('%m/%d/%Y %H:%M - ')"></span>
+								    <a class="cache-url" tal:attributes="href python: cache.absolute_url() + '/cache'; data-type python:cache.getCacheReference()" tal:content="node/Title" />
+									
+									<span class="cache_red" tal:on-error="nothing" tal:condition="python: not cache.getCache()['voyager']">(Missing Voyager)</span>
+									<span>&nbsp;</span>
+									<span class="cache_red" tal:on-error="nothing" tal:condition="python: not cache.getCache()['departmentsRef']">(Missing Databases)</span>
+								</tal:block>
+							</div>
+							
+							<br />
+							
+							<h4><u><i>Other Caches</i></u></h4>
+							<span style="font-weight: bold; margin-left: 32px;"> Last rebuilt on - Link to cache</span>
+							<div tal:repeat="node others">
+								<tal:block tal:define="cache python: node.getObject()">
+									<img class="cache-status" tal:condition="python: not cache.modified().isCurrentDay()" src="++resource++uwosh.librarytheme.images/exclamation.png" alt="Warn" />
+									<img class="cache-status" tal:condition="python: cache.modified().isCurrentDay()" src="++resource++uwosh.librarytheme.images/accept.png" alt="Good" />
+									<span class="cache-date" tal:content="python: cache.modified().strftime('%m/%d/%Y %H:%M - ')"></span>
+									<a class="cache-url" tal:attributes="href python: cache.absolute_url() + '/cache'; data-type python:cache.getCacheReference()" tal:content="node/Title" />
+								</tal:block>
+							</div>
+							
+							<br />
+							
+						</tal:block>
+						
+						
+					
+					</fieldset>
+				</dd>
+				
+		    </dl>
+
+		
+	
+	
+	</metal:content-core>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	  lang="en"
+	  metal:use-macro="here/main_template/macros/master"
+	  i18n:domain="plone">
+
+<body>
+
+	<!-- CSS -->
+	<metal:block fill-slot="style_slot">
+		<link rel="stylesheet" type="text/css" tal:attributes="href string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.stylesheets/guided_keywords.css"/>
+	</metal:block>
+	
+	<!-- Javascript -->
+	<metal:js fill-slot="javascript_head_slot">
+		<script type="text/javascript" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.javascripts/guided_keywords.js"></script>
+	</metal:js> 
+
+	<metal:content-description fill-slot="content-description">
+			<!-- Do nothing, remove Description -->
+	</metal:content-description>
+
+	<!-- main content -->
+	<metal:content-core fill-slot="content-core">
+
+	<div id="guided_keywords">
+	
+		<div id="old_browser"></div>
+	
+		<div id="synonyms">
+			<div id="synonyms_title">SYNONYMS</div>
+			<div id="synonyms_words"></div>
+		</div>
+	
+		<div id="research_topic">
+			<div id="research_topic_title">RESEARCH TOPIC</div>
+			<div class="research_topic_text_field">
+				<input type="text" name="research_topic" id="research_topic_input">
+			</div>
+		</div>
+		
+		<div class="helper_container" id="helper_research_topic">
+			<img class="helper_pointer_up" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/helper_pointer_up.png" alt="Help bubble is above">
+			<div class="helper_content">
+				<div class="helper_popup_title">Step 1</div>
+				<div class="helper_text">Enter your research topic here. Limit the topic to one sentence.</div>
+				<span class="helper_disable">Disable help</span>
+				<div class="helper_button helper_next">Next Step</div>
+			</div>
+		</div>
+		
+		<div id="concepts_terms">
+		
+			<div id="key_concepts_titlebar">
+				<div id="key_concepts_title">KEY CONCEPTS</div>
+			</div>
+			
+			<div id="related_terms_titlebar">
+				<div id="related_terms_title">RELATED TERMS</div>
+			</div>
+			
+			<div>
+				<div id="dividers">
+					<div id="divider1" class="divider">
+						
+						<div class="helper_container" id="helper_related_terms">
+							<div class="helper_content">
+								<div class="helper_popup_title">Step 3</div><div class="helper_text">Enter related terms for each of your key concepts.</div>
+								<span class="helper_disable">Disable help</span>
+								<div class="helper_button helper_next">Next Step</div>
+							</div>
+							<img class="helper_pointer_down" alt="Help bubble is below" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/helper_pointer_down_long.png">
+						</div>
+						
+						<div class="key_concepts_1 key_concepts_text_field">
+							<input type="text" name="key_concept1" class="key_concepts_input" id="key_concepts_input1"/>
+						</div>
+						
+						<img class="arrow_connector" alt="Next on the right" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/arrow_connector.png">
+						
+						<div class="related terms related_terms_1 related_terms_text_field">
+								<input type="text" name="related_term1.1" class="related_terms_input related_terms_input_1" id="related_terms_input1" />
+								<input type="text" name="related_term1.2" class="related_terms_input related_terms_input_1" id="related_terms_input2"/>
+								<img class="add_term_icon add_term_icon1 add_term" alt="Add Term" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/add_icon.png">
+						</div>				
+					</div>
+					
+					<div id="divider2" class="divider">
+						<div class="key_concepts_2 key_concepts_text_field">
+							<input type="text" name="key_concept2" class="key_concepts_input" id="key_concepts_input2"/>
+						</div>
+						
+						<img class="arrow_connector" alt="Next on the right" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/arrow_connector.png">
+						
+						<div class="related_terms related_terms_2 related_terms_text_field">
+								<input type="text" name="related_term2.1" class="related_terms_input related_terms_input_2" />
+								<input type="text" name="related_term2.2" class="related_terms_input related_terms_input_2" />
+								<img class="add_term_icon add_term_icon2 add_term" alt="Add Term" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/add_icon.png">
+						</div>
+					</div>
+					
+					<div id="divider3" class="divider">
+						<div class="key_concepts_3 key_concepts_text_field">
+							<input type="text" name="key_concept2" class="key_concepts_input" id="key_concepts_input2"/>
+						</div>
+						
+						<img class="arrow_connector" alt="Next on the right" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/arrow_connector.png">
+						
+						<div class="related_terms related_terms_3 related_terms_text_field">
+								<input type="text" name="related_term3.1" class="related_terms_input related_terms_input_3" />
+								<input type="text" name="related_term3.2" class="related_terms_input related_terms_input_3" />
+								<img class="add_term_icon add_term_icon3 add_term" alt="Add Term" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/add_icon.png">
+						</div>
+					</div>
+					
+				</div>
+				
+				<div id="add_row"><img id="add_row_icon" alt="Add another row" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/add_icon.png"></div>
+				
+			</div>
+			
+		</div>
+		
+		<div class="helper_container" id="helper_key_concepts">
+			<img class="helper_pointer_left" alt="Help bubble to the left" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/helper_pointer_left.png">
+			<div class="helper_content">
+				<div class="helper_popup_title">Step 2</div><div class="helper_text">Now, list the key concepts within your research topic. Type one key concept per box.</div>
+				<span class="helper_disable">Disable help</span>
+				<div class="helper_button helper_next">Next Step</div>
+			</div>
+			
+		</div>
+		
+		<div id="results">
+		
+			<div class="helper_container" id="helper_search_results">
+				<div class="helper_content">
+					<div class="helper_popup_title">Final Step</div><div class="helper_text">Your search query is built here. Use the button to the right to search with the selected database on the left.</div>
+					<span class="helper_disable">Disable help</span>
+					<div class="helper_button helper_next">Finish</div>
+				</div>
+				<img class="helper_pointer_down" alt="Help bubble is below" tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/helper_pointer_down.png">
+			</div>
+		
+			<div id="results_tabs">
+				<div class="results_tab" id="results_tab1">Search@UW</div>
+				<div class="results_tab" id="results_tab2">Academic Search Complete</div>
+			</div>
+			
+			<div id="results_text_field">
+				<div id="results_textarea"></div>
+			</div>
+			
+			<div id="search_results">
+				Search
+			</div>
+			
+		</div>
+
+	</div>
+	<div class="library_clear"></div>
+	<br />
+	<tal:block on-error="nothing">
+		<metal:field use-macro="python:context.widget('suffixText', mode='view')">
+		    Suffix text
+		</metal:field>
+	</tal:block>
+		   
+		   
+	</metal:content-core>				   
+
+</body>
+</html>

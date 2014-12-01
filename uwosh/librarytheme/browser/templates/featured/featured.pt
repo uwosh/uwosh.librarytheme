@@ -1,0 +1,224 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+	<metal:content-title fill-slot="content-title">
+		<h1 id="parent-fieldname-title" class="documentFirstHeading">
+			Edit Featured Content
+		</h1>
+	</metal:content-title>
+	
+	<metal:js fill-slot="javascript_head_slot">
+		<script type="text/javascript">
+			jq(document).ready(function(){
+				(function(){
+					jq('#f_submit').click(function(){
+						if (!SiteUtil.isLocalLink(jq('#f_website').val()) &&
+							jq('#f_website').val().trim() != "" &&
+							jq('input[name="website-title"]').val().trim() == "" &&
+							jq('input[name="website-desc"]').text().trim() == "") 
+						{
+							jq('.f-more-warn').css('display','inline-block');
+							return false;
+						}
+					});
+					
+					jq('#f-website-load').click(function(){
+						var url = jq('#f_website').val();
+						jq('#f_title').val('');
+						jq('#f_desc').text('');
+						if (SiteUtil.isLocalLink(url)) {
+							jq.get(url + '/Title', function(data){
+								jq('#f_title').val(data);
+							});
+							jq.get(url + '/Description', function(data){
+								jq('#f_desc').text(data);
+							});
+						}
+					});
+					
+					jq('#website-link-chooser').change(function(){
+						jq('#f_website').val(jq(this).val());
+						jq('#f-website-load').trigger('click');
+					});
+					
+					jq('#f-bibid-load').click(function(){
+						try {
+							var id = jq('#f-bibid').val();
+							jq.get(SiteUtil.getRootURL() + '/ws/getBookByBibID?bibid=' + id + '&alt=json', function(data){
+								jq('textarea[name="b-title"]').text(data.title_clean);
+								jq('textarea[name="b-location"]').text(data.locationDisplayName);
+								jq('textarea[name="b-author"]').text(data.author);
+								jq('input[name="b-isbn"]').val(data.isbn);
+							});
+						}catch(e){}
+					});
+					jq('#f-preview-btn').click(function(){
+						jq('#f-preview-img').attr('data-isbn',jq.trim(jq('input[name="b-isbn"]').val()));
+						SyndeticImages.init();
+						SyndeticImages.screenSweep();
+						jq('#f-preview-img').css('display','inline-block');
+						jq('#f-preview-img').error(function(){
+							jq(this).css('display','none');
+						});
+					});
+					
+				})();
+			});
+			
+		</script>
+	</metal:js>
+	
+	<metal:block fill-slot="style_slot">
+		<style>
+			.f_example{
+				color: gray;
+				font-style: italic;
+			}
+			.f_width{width: 450px;}
+			#emc_featured_content > fieldset {margin-bottom: 20px;}
+			.f-more-warn{display: none; border: 1px solid red; background-color: pink; padding: 10px;}
+			
+			.formPanel{border: 0px none;}
+			dl.enableFormTabbing dd {padding-top: 0px;}
+			fieldset legend {font-weight: bold; border: 1px solid #cccccc; border-radius: 5px;}
+			fieldset {background-color: #f0f0f0; border: 1px solid #cccccc;}
+		</style>
+	</metal:block>
+	
+
+	<metal:content-core fill-slot="content-core">
+			
+		<form id="emc_featured_content" tal:attributes="action string:${context/absolute_url}/edit_featured">
+			
+			
+		    <dl class="enableFormTabbing">
+				<dt id="fieldsetlegend-tab1">
+		        	<a tal:condition="view/allow_books" href="#fieldsetlegend-tab1">Book</a>
+				</dt>
+				<dt id="fieldsetlegend-tab2">
+		        	<a  tal:condition="view/allow_website" class="selected" href="#fieldsetlegend-tab2">Website/Database</a>
+				</dt>
+				<dt id="fieldsetlegend-tab3">
+		        	<a class="selected" href="#fieldsetlegend-tab3">Settings</a>
+				</dt>
+				
+
+				<dd id="fieldset-tab1">
+					<fieldset tal:define="exist python: view.has_data('book');">
+						<legend>Featured Book</legend>
+						
+						<br />
+						
+						<label>Provide a BIBID<br />
+							<input tal:condition="exist" id="f-bibid" type="text" name="b-bibid" tal:attributes="value view/get_data/book/bibid" />
+							<input tal:condition="not: exist" id="f-bibid" type="text" name="b-bibid" value="" />
+							<input id="f-bibid-load" type="button" name="Preview" value="Load Book Information" />
+						</label>
+						
+						<br /><br />
+						
+						<div class="f_book_data">
+							
+							
+							<label>Title:
+								<br />
+								<textarea tal:condition="exist" name="b-title" rows="2" tal:content="view/get_data/book/Title"></textarea>
+								<textarea tal:condition="not: exist" name="b-title" rows="2"></textarea>
+								<br />
+							</label>
+							
+							<label>Author:
+								<br />
+								<textarea tal:condition="exist" name="b-author" rows="2" tal:content="view/get_data/book/author"></textarea>
+								<textarea tal:condition="not: exist" name="b-author" rows="2"></textarea>
+								<br />
+							</label>
+							
+							<label>Location:
+								<br />
+								<textarea tal:condition="exist" name="b-location" rows="2" tal:content="view/get_data/book/location"></textarea>
+								<textarea tal:condition="not: exist" name="b-location" rows="2"></textarea>
+								<br />
+							</label>
+							
+							<label>ISBN:<span class="f_example">(Needed for cover image)</span>
+								<br />
+								<input tal:condition="exist" type="text" name="b-isbn" alt="hidden" 
+								       style="width:300px;" tal:attributes="value view/get_data/book/ISBN"/> 
+								<input tal:condition="not: exist" type="text" name="b-isbn" value="" alt="hidden" style="width:300px;"/> 
+								<input id="f-preview-btn" type="button" value="Preview Image" />
+								<br /><br />
+								<img  id="f-preview-img" style="display:none;" class="syndetic-image" data-isbn="" alt="Preview" />
+							</label>
+							
+						</div>
+						
+					</fieldset>
+				</dd>
+				
+				
+				<dd id="fieldset-tab2">
+					<fieldset tal:define="exist python: view.has_data('website');">
+						<legend>Feature Website or Database</legend>
+						<div class="f-more-warn">
+							You must provide a Title and Description for an external link.
+						</div>
+						<br />
+						<label>Provide a URL: <br />
+							<input tal:condition="exist" id="f_website" class="f_width" type="text" name="website-url" tal:attributes="value view/get_data/website/getURL" />
+							<input tal:condition="not: exist" id="f_website" class="f_width" type="text" name="website-url" />
+							<input id="f-website-load" type="button" name="Preview" value="Load Information" />
+						</label>
+						<tal:block condition="python: view.has_data('settings')" define="links view/getWebsiteLinkObjects">
+							<br />
+							<select tal:condition="python: len(links) > 0" id="website-link-chooser" name="website-link-chooser">
+								<option value="">or choose an existing link from your site...</option>
+								<option tal:repeat="link links" tal:attributes="value link/getURL" tal:content="link/Title"></option>
+							</select>
+						</tal:block>
+						<br /><br />
+						<label>Title:<br />
+							<input tal:condition="exist" id="f_title" class="f_width" type="text" name="website-title" tal:attributes="value view/get_data/website/Title" />
+							<input tal:condition="not: exist" id="f_title" class="f_width" type="text" name="website-title" />
+						</label>
+						<br /><br />
+						<label>Description: <br />
+							<textarea  tal:condition="exist"  id="f_desc" class="f_width" name="website-desc" tal:content="view/get_data/website/Description"></textarea>
+							<textarea  tal:condition="not: exist"  id="f_desc" class="f_width" name="website-desc"></textarea>
+						</label>
+						
+					</fieldset>
+				</dd>
+				
+				
+				<dd id="fieldset-tab3">
+					<fieldset tal:define="exist python: view.has_data('settings');">
+						<legend>Settings</legend>
+						<br /><span>This is for configuring the features.  Talk to the webmaster before changing settings.</span><br /><br />
+						<label>Website Existing Links - Catalog Path <br />
+							<input tal:condition="exist" id="f_website" class="f_width" type="text" name="settings-bath-path" tal:attributes="value view/get_data/settings/website_base_path" />
+							<input tal:condition="not: exist" id="f_website" class="f_width" type="text" name="settings-bath-path" />
+						</label>
+						<br /><br />
+						
+					</fieldset>
+				</dd>
+				
+		    </dl>
+
+			<div style="padding-left: 13px; margin-top: -20px">
+				<input id="f_submit" type="submit" value="Save Featured Content" name="save" />
+				<input type="hidden" value="1" name="submission" />
+			</div>
+			
+		</form>
+	
+	
+	</metal:content-core>
+
+</body>
+</html>

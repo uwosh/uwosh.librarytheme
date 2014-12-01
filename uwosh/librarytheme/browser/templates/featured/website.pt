@@ -1,0 +1,15 @@
+<tal:block on-error="nothing"
+		   condition="python: view.has_data('website')"
+		   define="website python: view.get_data['website']">
+	<tal:block condition="python:( website['getURL'] != '')">
+		<div class="library_headline">Featured Website</div>
+		<div>
+			<ul>
+				<li>
+					<a tal:attributes="href website/getURL" tal:content="website/Title">TITLE</a>
+					<div style="padding-left: 10px;" tal:content="website/Description">DESCRIPTION</div>
+				</li>
+			</ul>
+		</div>
+	</tal:block>
+</tal:block>

@@ -1,0 +1,13 @@
+<span class="pane-tip-trigger">
+	<a class="library_hours gat_hours" tal:attributes="href string:${view/portal/absolute_url}/hours; data-content string:Hours">
+		<span>Library Hours</span>
+	</a>
+	<span class="pane-tip-window pane-force-down polk-upcoming-hours-size">
+		<div class="pane-tip-heading">
+			<a tal:attributes="href string:${view/portal/absolute_url}/hours;">Upcoming Library Hours</a>
+		</div>
+		<div id="polk-upcoming-hours">
+			Loading... try refreshing the page.
+		</div>
+	</span>
+</span>

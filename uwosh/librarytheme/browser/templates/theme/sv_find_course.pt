@@ -1,0 +1,106 @@
+<tal:results define="init view/get_results;" condition="not: view/is_service_offline">
+	<div id="library_autocomplete_nojs">
+		<form method="get" tal:attributes="action string:${view/portal/absolute_url}/find">
+			<input style="width: 400px;" type="text" name="q" tal:attributes="value view/get_query" alt="Search" />
+			
+			<select name="type">
+				<!--<option tal:attributes="selected python:view.selected_bridge('everything')" value="everything">Course Pages & Website</option>-->
+				<option tal:attributes="selected python:view.selected_bridge('courses')" value="courses">Courses Pages</option>
+				<option tal:attributes="selected python:view.selected_bridge('website')" value="website">Website</option>
+			</select>
+			&nbsp;
+			<input class="library_search_button" type="submit" value="Search" name="submit" />
+			<br />
+			<input type="hidden" name="category" value="more" />
+		</form>
+	</div>
+	
+	<div style="font-style: italic; color: #777777; padding-top: 3px;">
+		<span tal:content="view/start" />
+		<span> of </span>
+		<span tal:content="view/get_total_count"/>
+		<span> results in </span>
+		<span tal:content="view/get_search_type" />
+	</div>
+	
+	
+	<fieldset id="lib_find_no_js_courses" tal:condition="python: view.get_start() < view.data_course_count and view.is_courses_only()"> 
+		<legend>Course Pages <span tal:content="string:(${view/data_course_count})" /></legend>
+	
+		<div tal:condition="view/is_courses_only" tal:repeat="node view/data_course" style="padding-top: 5px;">
+			
+			<a tal:attributes="href python:view.get_course_page_url(node)">
+				<label tal:content="python:node['subject']" />
+				<span tal:content="python:node['course_number']" /> 
+				
+				<span>&nbsp;:&nbsp;</span>
+				
+				<span tal:content="python:node['title']" ></span>
+				<span tal:condition="python:(node['title'] != '')"> - </span>
+				
+				<span tal:content="python:node['topic']" ></span>
+				<span tal:condition="python:(node['topic'] != '')"> - </span>
+				
+				<span tal:content="python:node['instructor']" />
+				<span tal:condition="python:(node['instructor'] != '')"> - </span>
+				
+				<span tal:content="python:node['section']" />
+			</a>
+			
+		</div>
+		
+		<div style="height: 20px; width: 600px; margin-top: 10px;">
+			<a class="library_left" style="font-weight: bold;" tal:condition="python:(view.get_start() != 0)" tal:attributes="href view/get_prev_page_url">&lt;&lt; Back</a>
+			<a class="library_right" style="font-weight: bold;" tal:condition="python:(view.get_start() < view.get_total_count() and view.get_total_count() > view.get_limit())" tal:attributes="href view/get_next_page_url">More Results &gt;&gt;</a>
+			<div class="library_clear"></div>
+		</div>
+	
+		
+	</fieldset>
+	
+
+
+	<fieldset id="lib_find_no_js_website" tal:condition="python: view.get_start() < view.data_website_count and view.is_website_only()"> 
+		<legend>Web Pages <span tal:content="string:(${view/data_website_count})" /></legend>
+		
+		<div tal:condition="view/is_website_only" tal:repeat="node view/data_website" style="padding-top: 5px;">
+		
+			<a tal:attributes="href python:node['id']">
+				<label tal:content="python:node['title']" />
+			</a>
+			<span tal:content="python:'in ' + node['parent_area']" />
+	
+		</div>
+		
+
+		<div style="height: 20px; width: 600px;  margin-top: 10px;">
+			<a class="library_left" style="font-weight: bold;" tal:condition="python:(view.get_start() != 0)" tal:attributes="href view/get_prev_page_url">&lt;&lt; Back</a>
+			<a class="library_right" style="font-weight: bold;" tal:condition="python:(view.get_start() < view.get_total_count() and view.get_total_count() > view.get_limit())" tal:attributes="href view/get_next_page_url">More Results &gt;&gt;</a>
+			<div class="library_clear"></div>
+		</div>
+		
+	</fieldset>
+	
+	
+
+
+	<div style="font-style: italic; color: #777777; padding-top: 10px;">
+		
+		<span tal:condition="python:view.get_total_count()>0">
+			Top <span tal:content="view/get_total_count" /> most relevent 
+			<span tal:condition="python:view.get_total_count()==1">result.</span>
+			<span tal:condition="python:view.get_total_count()>1">results.</span> 
+			<div>Didn't find what you were looking for? Try refining your search.</div>
+		</span>
+		<span tal:condition="python:view.get_total_count()==0">
+			No Results found with your search criteria.
+		</span>
+		
+	</div>
+	
+</tal:results>
+
+
+<tal:warning condition="view/is_service_offline">
+	<label tal:content="view/SERVICE_OFFLINE"></label>
+</tal:warning>

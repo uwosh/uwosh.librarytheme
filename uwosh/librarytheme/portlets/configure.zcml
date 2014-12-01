@@ -1,0 +1,24 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="uwosh.librarytheme">
+    
+  <!-- Ensure Plone's portlets ZCML has already been processed; without
+       this, we may get a permission lookup error
+  -->
+  <include package="plone.app.portlets" />
+  <!-- -*- extra stuff goes here -*- -->
+  
+  
+  <plone:portlet
+      name="uwosh.librarytheme.portlets.MyLibrary"
+      interface=".my_library.IMyLibrary" 
+      assignment=".my_library.Assignment"
+      view_permission="zope2.View"
+      edit_permission="cmf.ManagePortal"
+      renderer=".my_library.Renderer"
+      addview=".my_library.AddForm"
+      editview=".my_library.EditForm"
+      />
+
+</configure>

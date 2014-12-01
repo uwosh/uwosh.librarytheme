@@ -1,0 +1,30 @@
+<div id="portal-breadcrumbs"
+     i18n:domain="plone"
+     tal:define="init view/update;
+	 			 breadcrumbs view/breadcrumbs">
+	
+    <span id="breadcrumbs-home">
+        <a i18n:translate="tabs_home"
+           tal:attributes="href view/portal/absolute_url">Polk Library</a>
+    </span>
+    <span tal:repeat="crumb breadcrumbs"
+          tal:attributes="id string:breadcrumbs-${repeat/crumb/number}">
+        <tal:item tal:define="is_last repeat/crumb/end;
+                              url crumb/absolute_url;
+                              title crumb/Title">
+           	<span class="breadcrumbSeparator" tal:condition="not: is_last">&rsaquo;</span>
+           	<a href="#"
+               tal:omit-tag="not: url"
+               tal:condition="python:not is_last"
+               tal:attributes="href url"
+               tal:content="title">
+                crumb
+            </a>
+         </tal:item>
+    </span>
+	<tal:block>
+       	<span class="breadcrumbSeparator">&rsaquo;</span>
+       	<a id="lib_marker_context_id" tal:attributes="href context/absolute_url" tal:content="context/title" />
+		<span tal:condition="not: context/title" tal:content="string: (Title Of New ${context/Type})" />
+	</tal:block>
+</div>

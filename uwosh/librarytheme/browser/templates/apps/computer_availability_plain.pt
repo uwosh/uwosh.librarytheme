@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	  lang="en"
+	  i18n:domain="plone">
+
+	<head>
+		<link rel="stylesheet" type="text/css" 
+		      tal:attributes="href python:context.portal_url.getPortalObject().absolute_url() + '/portal_skins/custom/computer_availability/computer-availability.css'"/>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">var jq = $.noConflict();</script>
+		<script type="text/javascript" 
+				tal:attributes="src python:context.portal_url.getPortalObject().absolute_url() + '/portal_skins/custom/computer_availability/computer-availability.js'"></script>
+	</head>
+
+	<body>
+		<div id="content">
+			<div id="content-core">
+				<tal:insert on-error="python: str('Error loading pages.')" content="structure python: context.portal_skins.custom.computer_availability.computer_body()" />
+			</div>
+		</div>
+	</body>
+
+
+</html>

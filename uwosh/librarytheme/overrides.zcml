@@ -1,0 +1,68 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="uwosh.librarytheme">
+
+
+<!-- QUILLS OVERRIDES -->
+    <browser:view for="*"
+        name="quills_weblog_macros"
+        class=".products.quills.macros.WeblogMacros"
+        permission="zope2.View" />
+        
+    <browser:view for="*"
+        name="quills_entry_macros"
+        class=".products.quills.macros.WeblogEntryMacros"
+        permission="zope2.View" />
+
+	<browser:page
+		for="quills.core.interfaces.IWeblog"
+		class=".products.quills.webviews.LibraryWeblogView"
+		template="./products/quills/weblog_view.pt"
+		permission="zope2.View"
+		name="weblog_view" />
+
+	<browser:page
+		for="quills.core.interfaces.IWeblogEntry"
+		class=".products.quills.webviews.LibraryWeblogEntryView"
+		template="./products/quills/weblogentry_view.pt"
+		permission="zope2.View"
+		name="weblogentry_view" />
+
+	<browser:page
+		for="quills.core.interfaces.IWeblogArchive"
+		class=".products.quills.webviews.LibraryArchiveView"
+		template="./products/quills/archive_view.pt"
+		permission="zope2.View"
+		name="archive_view" />
+		
+	<browser:page
+		for="quills.core.interfaces.ITopic"
+		template="./products/quills/topic_view.pt"
+		class=".products.quills.webviews.LibraryTopicView"
+		permission="zope2.View"
+		name="topic_view" />
+
+	<browser:page
+		for="quills.core.interfaces.ITopicContainer"
+		class="quills.app.browser.weblogview.KeywordTopicView"
+		template="./products/quills/topic_listing.pt"
+		permission="zope2.View"
+		name="topic_listing" />
+
+    <plone:portletRenderer
+		portlet="quills.app.portlets.archive.IWeblogArchivePortlet"
+		class=".products.quills.archive_portlet.Renderer"
+		layer="plone.theme.interfaces.IDefaultPloneLayer"
+     />
+     
+    <plone:portletRenderer
+		portlet="quills.app.portlets.quillslinks.IQuillsLinksPortlet"
+		class=".products.quills.quills_portlet.Renderer"
+		layer="plone.theme.interfaces.IDefaultPloneLayer"
+     />
+<!-- END QUILLS OVERRIDES -->
+     
+     
+</configure>

@@ -1,0 +1,28 @@
+<div id="library_header">
+    <div id="library_banner_container" tal:condition="python:(context.portal_type != 'Plone Site')">
+        <a id="uwo_logo" href="http://www.uwosh.edu/home" class="library_no_underline library_no_border" >
+            <img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/logo.png" alt="University of Wisconsin Oshkosh" />
+        </a>
+        <a id="polk_logo" tal:attributes="href view/portal/absolute_url" class="library_no_underline library_no_border" >
+            <img tal:attributes="src string:${view/portal/absolute_url}/images/header-water-mark/" style="margin-left: 20px; margin-top: 5px;" alt="Polk Library" />
+        </a>
+	 	<img id="polk_banner" tal:attributes="src string:${view/portal/absolute_url}/images/header-banner/" style="float:right;" alt="Banner" />
+    </div>
+	<div id="library_header_banner_hp" tal:condition="python:(context.portal_type == 'Plone Site')"
+	     tal:attributes="style string:background-image: url('${view/portal/absolute_url}/images/header-homepage-banner');">
+        <a id="uwo_logo_hp" href="http://www.uwosh.edu/home" class="library_no_underline library_no_border">
+            <img tal:attributes="src string:${view/portal/absolute_url}/++resource++uwosh.librarytheme.images/logo.png"
+                 alt="University of Wisconsin Oshkosh" />
+        </a>
+        <a id="polk_logo" tal:attributes="href view/portal/absolute_url" class="library_no_underline library_right library_no_border">
+            <img tal:attributes="src string:${view/portal/absolute_url}/images/header-water-mark/"
+                 style="margin-right: 25px; margin-top: 45px;"
+                 alt="Polk Library" />
+        </a>
+	</div>
+	<tal:block tal:condition="python:(context.portal_type != 'Plone Site')" tal:content="structure context/sv_navigation_bar" />
+	<tal:block tal:condition="python:(context.portal_type == 'Plone Site')">
+		<div class="library_hours_box_hp" tal:content="structure context/sv_hours"></div>
+	</tal:block>
+	<div style="background-color: #7b7b7b; height: 2px;"></div>
+</div>

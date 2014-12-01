@@ -1,0 +1,14 @@
+<span  class="anchor-drops-label" title="Show more Research Databases">
+	<a tal:attributes="href python:context.portal_url.getPortalObject().absolute_url() + '/databases/atoz'">Research Databases</a>
+	<span class="anchor-drops-arrow">&nbsp;</span>
+</span>
+<ul class="anchor-drops-options"  style="width: 350px" tal:on-error="nothing">
+	<li><a tal:attributes="href python:context.portal_url.getPortalObject().absolute_url() + '/databases/atoz'" title="All Databases"><b>All Research Databases</b></a></li>
+	<tal:block tal:repeat="node view/databases"><li class="pane-tip-trigger pane-load" tal:attributes="data-id node/id" tal:define="url python: context.restrictedTraverse('guide_tools').EzProxy(node['is_omit_proxy'],node['url'])">
+		<img tal:condition="python: (node['warning_message'] != '')" src="++resource++uwosh.libraryguides.images/warning.png" alt="Downtime Warning"/>
+		<img tal:condition="python: (node['trial_message'] != '')" src="++resource++uwosh.libraryguides.images/trial.png" alt="Trial Database" />
+		<a tal:attributes="href url; title node/title"  tal:content="python: context.restrictedTraverse('guide_tools').shorten_text(node['title'],55)" />
+		<img tal:condition="python: (node['tutorial_url'] != '' or node['gots_url'] != '')" src="++resource++uwosh.libraryguides.images/tutorial.png" alt="Tutorials Available" />
+		<div class="pane-tip-window pane-force-left"></div>
+	</li></tal:block>
+</ul>

@@ -1,0 +1,86 @@
+<!-- JS Disabled -->
+<ul class="js_disabled formTabs" style="margin-bottom: 1px;">
+	<li class="formTab firstFormTab">
+		<a href="#" class="selected">
+			<span>Articles, Books &amp; More</span>
+		</a>
+	</li>
+	<li class="formTab lastFormTab">
+		<a tal:attributes="href string:${view/portal/absolute_url}/find?category=more&type=Everything&q=">
+			<span>Course Reserves &amp; Website</span>
+		</a>
+	</li>
+</ul>
+
+<div tal:condition="python:(context.portal_type!='Plone Site')" class="js_disabled" style="background-color:#e0e0e0; margin-top: -1px; padding: 10px 0 8px 10px; width: 810px; ">
+	<form id="lib_everything_search" class="gat_books" method="get" action="http://uw-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=go&amp;ct=search">
+		<input id="library_search_in_everything" class="library_search_in" type="text" maxlength="100" value="" name="vl(freeText0)" 
+		       style="width: 292px;"
+			   alt="Search UW Oshkosh and UW System for Articles, Books and More..." />
+		<input type="hidden" name="fn" value="go">
+		<input type="hidden" name="ct" value="search">
+		<input type="hidden" name="mode" value="Basic">
+		<input type="hidden" name="tab" value="default_tab">
+		<input type="hidden" name="indx" value="1">
+		<input type="hidden" name="dum" value="true">
+		<input type="hidden" name="srt" value="rank">
+		<input type="hidden" name="vid" value="TEST_OSH">
+		<select name="scp.scps" style="height: 26px; border: 1px solid #dddddd; border-top: 1px solid #666666; border-right: 1px solid #aaaaaa; padding:2px;">
+			<option value="scope:('OSH'),scope:(VOYAGER),scope:(UW_MINDS),scope:(UWDC),primo_central_multiple_fe">Everything</option>
+			<option value="primo_central_multiple_fe">- Articles</option>
+			<option value="scope:(OSH_VOY)">- Books &amp; Media (UW Oshkosh)</option>
+			<option value="scope:(VOYAGER)">- Books &amp; Media (UW System)</option>
+			<option value="scope:(UW_MINDS),scope:(UWDC)">- UW Digital Collections</option>
+		</select>
+		<input class="library_search_button" type="submit" value=" FIND" name="SUBMIT" />
+	</form>
+</div>
+
+<div tal:condition="python:(context.portal_type=='Plone Site')" class="js_disabled" style="background-color:#e0e0e0; height: 80px; width: 610px; margin: 0 10px; padding: 10px;">
+	
+	<form id="lib_everything_search" class="gat_books" method="get" action="http://uw-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=go&amp;ct=search">
+		<input id="library_search_in_everything" class="library_search_in" type="text" maxlength="100" value="" name="vl(freeText0)" 
+		       style="width: 292px;"
+			   alt="Search UW Oshkosh and UW System for Articles, Books and More..." />
+		<input type="hidden" name="fn" value="go">
+		<input type="hidden" name="ct" value="search">
+		<input type="hidden" name="mode" value="Basic">
+		<input type="hidden" name="tab" value="default_tab">
+		<input type="hidden" name="indx" value="1">
+		<input type="hidden" name="dum" value="true">
+		<input type="hidden" name="srt" value="rank">
+		<input type="hidden" name="vid" value="TEST_OSH">
+		<select name="scp.scps" style="height: 26px; border: 1px solid #dddddd; border-top: 1px solid #666666; border-right: 1px solid #aaaaaa; padding:2px;">
+			<option value="scope:('OSH'),scope:(VOYAGER),scope:(UW_MINDS),scope:(UWDC),primo_central_multiple_fe">Everything</option>
+			<option value="primo_central_multiple_fe">- Articles</option>
+			<option value="scope:(OSH_VOY)">- Books &amp; Media (UW Oshkosh)</option>
+			<option value="scope:(VOYAGER)">- Books &amp; Media (UW System)</option>
+			<option value="scope:(UW_MINDS),scope:(UWDC)">- UW Digital Collections</option>
+		</select>
+		<input class="library_search_button" type="submit" value=" FIND" name="SUBMIT" />
+
+	</form>
+	
+	<div class="library_links" style="padding: 5px;">
+		<a href="http://uw-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?mode=Advanced&ct=AdvancedSearch&dscnt=2&fromLogin=true&vid=OSH">Advanced Search</a>
+		<span class="pipe"> | </span>
+		<a href="http://oshlib.wisconsin.edu/vwebv/searchAdvanced">Old Catalog</a>
+		<span class="pipe"> | </span>
+		<a tal:attributes="href string:${view/portal/absolute_url}/borrowing">Beyond UW System</a>
+	</div>
+	
+	<div class="library_line_break_p"> </div>
+	
+	<div class="library_left library_links" style="padding: 5px;">
+		<a href="http://sfx.wisconsin.edu/uwosh/az/">Journals by Title</a>
+	</div>
+	
+	<div class="library_right library_links" style="padding: 5px;">
+		<a tal:attributes="href string:${view/portal/absolute_url}/subjects">Collections by Subject</a>
+		<span class="pipe"> | </span>
+		<a tal:attributes="href string:${view/portal/absolute_url}/databases">Research Databases</a>
+	</div>
+	<div class="library_clear"></div>
+</div>
+
+<!-- END: JS Disabled -->

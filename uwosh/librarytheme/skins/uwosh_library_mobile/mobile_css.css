@@ -1,0 +1,252 @@
+.ui-panel-content-wrap, html, body, #page{
+	background:rgb(255,243,165);
+	min-height:100%;
+	overflow-x: hidden;
+}
+
+#content-wrap{
+	background:rgb(255,243,165);
+}
+
+#content{
+	background:rgb(255,243,165);
+	padding-bottom:36px;
+	min-height:100%;
+}
+
+#pfgActionEdit, #pfgThanksEdit, #pfgqedit, #pfgnedit {
+	display:none !important;
+}
+
+.documentDescription {
+	font-weight: bold;
+	font-style: italic;
+}
+
+.documentFirstHeading {
+	margin-top:0px;
+	max-width:100% !important;
+	word-wrap: break-word;
+	overflow-x:hidden !important;
+	margin-bottom: 5px;
+}
+
+.library_staff_font_l {
+	font-weight: bold;
+}
+
+.ui-panel-inner {
+	padding-top: 0px !important;
+}
+
+.ui-collapsible-set {
+	margin-top: 0px !important;
+}
+
+.gat_films_play_link {
+	display:none;
+}
+
+.library_guides_more{
+	padding-bottom:10px;
+}
+
+div[data-role="content"]{
+	overflow:auto;
+}
+
+a {
+	word-wrap: break-word !important;
+
+}
+.ui-bar-a {
+	color:white !important;
+}
+
+.ui-bar-a a:link {
+	color:white !important;
+}
+
+.ui-bar-a a:visited {
+	color:white !important;
+}
+
+.ui-bar{
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+
+.library_staff_push_l_more {
+	padding-bottom:20px;
+}
+
+@media (max-width:350px){
+	.ui-grid-a > div > a {
+		height:140px !important;
+		line-height: 70px !important;
+		padding:10px;
+	}
+}
+
+@media (min-width:351px){
+	.ui-grid-a > div > a {
+		height:140px !important;
+		line-height: 140px !important;
+	}
+}
+
+td ul{
+	margin: 0px;
+}
+
+td ul .ui-bar{
+	margin: 10px !important;
+}
+
+#content.homepage{
+	/* Gradients for homepage background */
+	background: -moz-linear-gradient(top,  rgba(255,243,165,0) 0%, rgba(255,243,165,1) 80%, rgba(255,243,165,1) 100%), url('http://www.uwosh.edu/library/images/mobile-background.jpg'); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,243,165,0)), color-stop(80%,rgba(255,243,165,1)), color-stop(100%,rgba(255,243,165,1))), url('http://www.uwosh.edu/library/images/mobile-background.jpg'); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,243,165,0) 0%,rgba(255,243,165,1) 80%,rgba(255,243,165,1) 100%), url('http://www.uwosh.edu/library/images/mobile-background.jpg'); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,243,165,0) 0%,rgba(255,243,165,1) 80%,rgba(255,243,165,1) 100%), url('http://www.uwosh.edu/library/images/mobile-background.jpg'); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,243,165,0) 0%,rgba(255,243,165,1) 80%,rgba(255,243,165,1) 100%), url('http://www.uwosh.edu/library/images/mobile-background.jpg'); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,243,165,0) 0%,rgba(255,243,165,1) 80%,rgba(255,243,165,1) 100%), url('http://www.uwosh.edu/library/images/mobile-background.jpg'); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fff3a5', endColorstr='#fff3a5',GradientType=0 ); /* IE6-9 */
+
+    background-position:center top;
+	margin:-15px;
+	padding:15px;
+	height:100%;
+}
+
+.atoz-group label{
+	font-weight:bold;
+	display:inline;
+}
+
+.atoz-group div{
+	display:inline;
+}
+
+.pane-tip-heading{
+	display:none;
+}	
+
+
+
+#parent-fieldname-text table{
+	border-collapse: collapse;
+}
+
+#parent-fieldname-text td{
+	background-color: rgb(247, 246, 137);
+	border: 1px solid rgb(247,201,66);
+	padding: 3px 5px 3px 5px;
+}
+
+
+#parent-fieldname-text th{
+/*	background-color: rgb(251, 239, 128); */
+	background: black;
+	background: linear-gradient(#3C3C3C, #111111) repeat scroll 0 0 #111111;
+	color: white;
+	border: 1px solid black;
+	padding: 3px 5px 3px 5px;
+	text-shadow: none !important;
+}
+
+#parent-fieldname-text th a:link{
+	color: white;
+}
+
+#parent-fieldname-text th a:visited{
+	color: white;
+}
+
+#parent-fieldname-prefixText td{
+	display:block;
+}
+
+table{
+	display:inline;
+	max-width:100%;
+}
+
+@media (max-width: 350px){
+	img{
+		max-width:100%;
+	}
+	table img {
+		max-width:100px;
+	}
+}
+
+@media (min-width: 351px){
+	img{
+		max-width:100%;
+	}
+	table img {
+		max-width:140px;
+	}
+}
+/*
+#footer{
+	position:absolute;
+	bottom:0px;
+	width:100%;
+}
+*/
+
+.atoz-box{
+	font-size: 30px;
+	text-align: center;
+}
+
+#library_autocomplete_nojs {
+	display:none;
+}
+
+#portal-breadcrumbs{
+	/*display:none;*/
+	padding-bottom:5px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid black;
+}
+
+#lib_everything_search {
+	padding-top:10px;
+}
+
+.documentByLine {
+	display:none;
+}
+
+.ui-radio input{
+	margin:0;
+}
+
+.emc_search_input_pad span{
+	margin-left: 40px;
+	display:inline-block;
+	padding-bottom:10px;
+}
+
+#homecollapsible > .ui-collapsible-content {
+	padding: 0px !important;
+}
+
+#nav {
+    display:none;
+}
+
+a[data-role="button"] {
+    opacity: 0.9;
+}
+
+div[data-role="collapsible-set"] {
+    opacity: 0.9;
+}
+
+ul[data-role="listview"] {
+    opacity: 0.9;
+}

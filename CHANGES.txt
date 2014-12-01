@@ -1,0 +1,475 @@
+Changelog
+=========
+
+0.4.38
+-------
+- Hoverable Hours
+- Department subject portlets moved to skins layer
+
+0.4.37
+-------
+- Primo Tutorial Link, ebooks overlays
+
+0.4.36
+-------
+- Test Case
+
+0.4.35
+------
+- Switched to Primo DL Search
+
+0.4.34
+------
+- Hours override purges ram.cache now
+
+0.4.33
+------
+- Database Lookup service for databases
+
+0.4.32
+------
+- Primo search changes
+
+0.4.31
+------
+- GOTS tutorial support
+
+0.4.30
+------
+- Changed all Illiad Links
+
+0.4.29
+------
+- Minor css changes
+
+0.4.28
+------
+- EMC Label Change
+- Fixed folder_listing.pt with collection issue
+- Updated CSS
+
+0.4.27
+------
+- Removed old templates
+
+0.4.26
+------
+- Fixed tab triggers
+- Analytic switch to use web service.
+
+0.4.25
+------
+- Primo Changes
+- My Quicklinks moved to uwosh.libraryguides
+
+0.4.24
+------
+- Added Guided Search Builder
+- Switching Journal Search Interface to SFX
+
+0.4.23
+------
+- Improved tracking infrastructure
+
+0.4.22
+------
+- Stable release for javascript tooltip pane.
+
+0.4.21
+------
+- Adjustments to the new javascript tooltip pane.
+
+0.4.20
+------
+- Major change.  Added new javascript tooltip pane.
+
+0.4.19
+------
+- Added teired support for Cover Images.  First it uses Bowker.  If no image then, google cover. If no image, generate fake image.
+- Add https support for cover images
+- Added eBooks overlay to cover images
+- Added https support for Subject Portlets
+
+0.4.18
+------
+- Naming conflict
+
+0.4.17
+------
+- Added computer availability views
+
+0.4.16
+------
+- Added academic portlet scripts
+
+0.4.15
+------
+- Added DE custom homepage
+
+0.4.14
+------
+- Added Primo link space
+- Removed Courses & Website new icon
+- Added Reference & Background to MyQuickLinks
+
+0.4.13
+------
+- Government homepage adjustments
+
+0.4.12
+------
+- Changes government homepage
+
+0.4.11
+------
+- Made adjustment to cache settings
+- Added government homepage
+
+0.4.10
+------
+- Added Caches to Site Settings
+- Setup CSS for inline editing
+
+0.4.9
+-----
+- Changed SimpleTool to ToolTipper
+- Added Trial Messages to Databases
+- Added Downtime Messages to Databases
+
+0.4.8
+-----
+- Added fake cover images to syndetics.js
+- Some css additions
+
+0.4.7
+-----
+- Major refactor in css, js, classes, views
+
+0.4.6
+-----
+- Made requested EMC homepage changes.
+- Adjusted required code from libraryguides refactor.
+
+0.4.5
+-----
+- Removed anonymous option from suggestion box.
+
+0.4.4
+-----
+- Adjusted footer links
+- Changed EMC homepage to hide descriptions
+
+0.4.3
+-----
+- Combined Site Settings and Site Messaging System
+- Fixed button css on MyQuickLinks
+
+0.4.2
+-----
+- Added template to override library hours message also change termcode
+
+0.4.1
+-----
+- Added LibraryHours handling of no response.
+
+0.4.0
+-----
+- Fixed tab bug with ?home=y
+
+0.3.27
+------
+- Changed jquery-ui to use legacy. 
+
+0.3.26
+------
+- Added video icons to pages, which appear in folder_listing.pt
+- Combined Alumni and Visitor Code.
+
+0.3.25
+------
+- Validated pages.
+
+0.3.24
+------
+- Added corner introduction video to main_template.pt
+- This release is a candidate for version 1 release.
+
+0.3.23b
+-------
+- Fixed permission issue again, hotfix on production prevent last fix
+- Added Solr service unavailable.
+
+0.3.22b
+-------
+- Switched folder at extesions to use text-xhtml-safe.
+- AnchorDrop script now closes previously open windows.
+- Fix IE bug.
+- Fixed permission issue.
+
+0.3.21b
+-------
+- Folder extensions resolveuid/ bug fixed.
+
+0.3.20b
+-------
+- Bowker bug.
+
+0.3.19b
+-------
+- Forgot proxy urls... dang it.
+
+0.3.18b
+-------
+- Changes to tabs based off of user testing.
+- Tabs dropdowns redesigned not to look like filters.
+
+0.3.17b
+-------
+- Changed annotation key
+
+0.3.16b
+-------
+- Fixed EMC Featured bug
+- CSS Changes, made things look pretty
+
+0.3.15b
+-------
+- Adjusted MyQuickLinks Portlet
+
+0.3.14b
+-------
+- Added featured tab to be pinnable on any folder.
+- Changed footer fontsize
+- Homepage tabs are fully expanded
+- Changed wording of many fields to be friendly
+- Changed Feedback box
+- Fully redesigned EMC
+- Probably more... can't remember.
+
+0.3.13b
+-------
+- Fixed proxy bug in specific research database
+- Fixed flicker in autocomplete
+- Fixed snap back on homepage.
+
+0.3.12b
+-------
+- Made search template changes to fix issues from usability testing.
+
+0.3.11b
+-------
+- Libraryh3lp's API changed, mirrored changes.
+
+0.3.10b
+-------
+- Warning system bug fix.
+
+0.3.9b
+------
+- Extended Schema for Folders giving them a Prefix RichText and Suffix RichText
+- Added warning system.
+- Various small changes (html, css, etc...)
+- Fixed GA.
+
+0.3.8b
+------
+- Adjusted homepage based off of user feedback.
+- Changes to MyGuides, now My Quick Links
+
+0.3.7b
+------
+- Fixed libraryh3lp available bug.
+
+0.3.6b
+------
+- Added disability services to footer.
+- Adjusted library closed msg.
+
+0.3.5b
+------
+- Added images.
+- GA Adjustments.
+- Better Solr.
+
+0.3.4b
+------
+- Cleaned up MyGuides, removed hours, removed journals.
+- Fixed GA Tracking a bit
+- Adjusted Solr Search, much more optimized.
+
+0.3.3b
+------
+- Adjusted Search again
+
+0.3.2b
+------
+- Adjusted Search
+
+0.3.1b
+------
+- More MyGuide Portlet Functionality
+- Quill overrides. (removed tags)
+
+0.3.0b
+------
+- Made LibraryH3lp.js to allow multiple chats anywhere.
+
+0.2.9b
+------
+- Portlet Adjustments.
+
+0.2.8b
+------
+- Footer links
+
+0.2.7b
+------
+- Fixed feedback bug, from the major refactor.
+
+0.2.6b
+------
+- Form Submission adjustments.
+
+0.2.5b
+------
+- Adjusted homepage.
+- Adjustments to theme.
+- Added jquery ext simpletip.
+
+0.2.4b
+------
+- Major Changes
+- Changed Footer to be Footer Sitemap
+- Combined Services and Courses Tab into one tab.
+- Auto Complete Search searches website and courses.
+- Homepage template adjusted.
+
+0.2.3b
+------
+- Fixed a Memoize ram.cache issue, (Note: don't memoize a url, rewrite messes it up)
+- Adjusted the path for the recently modified manager.
+
+0.2.1b
+------
+- Forgot to add a 's' after a parameter in a link...
+
+0.2.0b
+------
+- Fixed SolrAutoCompletion TermCode bug.
+- Fixed LibraryHours from urllib to httplib, to prevent timeout.
+
+0.1.10a
+------
+- Added non-javascript search boxes for Books/Videos/Journals/Courses
+- Redesigned homepage again...
+- Changed interfaces.
+- Changed EMC to a browserview, was a simple template.
+
+0.1.9a
+------
+- Solr Search was added.
+- Solr Javascript classes added.
+- Feedback design was adjusted.
+- Quill template modifications.
+
+0.1.8a
+------
+- Added Quill Product template modifications
+- News DAO now uses quill content types.
+
+0.1.7a
+------
+- Changed html to homepage
+- Homepage news only shows if tagged with 'Headline News'
+- Moved quicklinks to bottom of homepage.
+
+0.1.6a
+------
+- Homepage news is now functional
+
+0.1.5a
+------
+- Added Images folder, so now SiteBanner and SiteLogo load from this folder, allows quick changes.
+- Articles Header Section, now loads from a-to-z list in SearchTools, heavy caching.
+- Changed Homepage
+- Added new completed links to the dropdowns.
+
+0.1.4a
+------
+- Fixed a conflict with PloneFormGen
+
+0.1.3a
+------
+- Fixed skins.xml file.  Layers were ordered wrong.
+
+0.1.2a
+------
+- Changes to hours, caching now enabled.
+- CSS tweaks.
+
+0.1.1a
+------
+- Completely New Homepage Layout
+- Completely New Header and Navigation Layout
+- Added Maintenance message.
+- Old outdated homepages and nav views are still included.
+
+0.1.0a
+------
+- New homepage layout
+- Navigation layout redesigned, easier for users to see
+
+0.0.9a
+------
+- Customized plones standard display pages (all_content, folder_listing, etc..)
+- Finalized EMC Site, Student testing will begin from this point onwards.
+
+0.0.8a
+------
+- Same as 0.0.7a, fixed bad egg.
+
+0.0.7a
+------
+- EMC homepage now editable through ZMI > portal_skins > custom
+- Changed the CSS layout of all descriptions and content-core.
+- SOLR Auto-Completion in Guides Menubar.
+- Jquery for SOLR auto-complete setup, still a bit buggy.
+- Major Jquery-UI CSS editing.
+- Changes to Library UserCustomized Portlet
+
+0.0.6a
+------
+- Redesigned the Right Portlet Column, now campus standard.
+
+0.0.5a
+------
+- Fixed egg install issue
+
+0.0.4a
+------
+- Fixed egg install issue
+- Egg (Removed)
+
+0.0.3a
+------
+- Fixed egg install issue
+- Egg (Removed)
+
+0.0.2a
+------
+- Main Library html,css,javascript
+- EMC site html,css,javascript
+- Government Information site html,css,javascript
+- Library User Portlet setup.
+- Setup layout of viewlets
+- setup custom viewlets and browser views.
+
+0.0.1
+------
+- Initial Product
+
+0.0.1 (xxxx-xx-xx)
+------------------
+
+- Created recipe with ZopeSkel
+  [David Hietpas]
